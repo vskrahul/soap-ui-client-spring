@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<configuration scan="true" scanPeriod="30 seconds">
+	<contextName>DEP User Tool</contextName>
+
+	<property name="FILE_PATH" value="${CATALINA_HOME}/logs" />
+	<property name="FILE_INITIAL" value="csg" />
+	<property name="FILE_EXT" value="log" />
+
+
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+		<!-- 
+			Setting the resetJUL property of LevelChangePropagator will reset all previous level configurations of all j.u.l. loggers. However, previously 
+			installed handlers will be left untouched. 
+		-->
+		<resetJUL>true</resetJUL>
+	</contextListener>
+
+
+	<!-- To enable JMX Management -->
+	<jmxConfigurator />
+
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		
+		<file>${FILE_PATH}/${FILE_INITIAL}.${FILE_EXT}</file>
+		
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			
+			<!-- daily roll over -->
+			<fileNamePattern>${FILE_INITIAL}.%d{yyyy-MM-dd}.${FILE_EXT}</fileNamePattern>
+			
+			<!-- day's -->
+			<maxHistory>2</maxHistory>
+			
+			<!-- size in MB -->
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        		<maxFileSize>5MB</maxFileSize>
+      		</timeBasedFileNamingAndTriggeringPolicy>
+		
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-5level %logger{0} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	
+	<logger name="org.springframework" level="info" additivity="true">
+		<appender-ref ref="FILE" />
+	</logger>
+
+
+	<logger name="com.ws.client" level="debug" additivity="true">
+		<appender-ref ref="FILE" />
+	</logger>
+
+
+	<root level="info">
+		<appender-ref ref="FILE" />
+	</root>
+	
+</configuration>

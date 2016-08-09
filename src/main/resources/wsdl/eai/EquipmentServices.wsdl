@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://microsoft.com/wsdl/types/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://charter.com/enterprise/billing/equipment" xmlns:s0="http://charter.com/enterprise/billing/csg/equipment" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://charter.com/enterprise/billing/equipment" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://charter.com/enterprise/billing/csg/equipment">
+      <s:element name="ExchangeEquipmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CsgHeaderInfo" type="s0:CsgHeaderInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EquipmentList" type="s0:ExchangeEquipmentList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CsgHeaderInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoutingArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConversationId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RealTime" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExchangeEquipmentList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuppressHit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Equipment" type="s0:ExchangeEquipment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExchangeEquipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HandshakeId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OldSerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OldType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OldOutlet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewSerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewOutlet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Component">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="OldCode" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="NewCode" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PrimaryAddress" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="Video">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="SecondaryAddress" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="HostIdentifier" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="DataIdentifier" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="AssociatedEquipment">
+                        <s:complexType>
+                          <s:sequence>
+                            <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+                            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+                            <s:element minOccurs="0" maxOccurs="1" name="ComponentCode" type="s:string" />
+                          </s:sequence>
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Item">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="ServiceIdentifier" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="Port" type="s:string" />
+                    </s:sequence>
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="RatingCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Alert">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestedFunction" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExchangeEquipmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Result" type="s0:Result" />
+            <s:element minOccurs="0" maxOccurs="1" name="EquipmentResult" type="s0:EquipmentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s0:ResultReturnCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="s0:ResultType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Server" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionInfo" type="s0:ResultExceptionInfo" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StatusMessages" type="s0:CsgStatusMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ResultReturnCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="NoDataFound" />
+          <s:enumeration value="InvalidXml" />
+          <s:enumeration value="BusinessRuleNotMet" />
+          <s:enumeration value="Exception" />
+          <s:enumeration value="DatabaseError" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ResultType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Informational" />
+          <s:enumeration value="Error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ResultExceptionInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StackTrace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CsgStatusMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EquipmentResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CsgResponse" type="s0:CsgResponse" />
+          <s:element minOccurs="0" maxOccurs="1" name="Business" type="s0:Business" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s0:Customer" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s0:Location" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentList" type="s0:ArrayOfEquipment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CsgResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Business">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Customer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SysPrin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agent" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Location">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LocationID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEquipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Equipment" type="s0:Equipment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Equipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Outlet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sequence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentLocation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentLocationEntryDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModelDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReplacementModel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReplacementModelDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnershipDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InventoryStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignalType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Component" type="s0:Component" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RatingCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiptDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepairDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorModel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOCSISVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OffPremiseEquipment" type="s0:OffPremiseEquipment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Component">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressingMode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Events" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s0:Usage" />
+          <s:element minOccurs="0" maxOccurs="1" name="Video" type="s0:Video" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Item" type="s0:Item" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Services" type="s0:Service" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Enabled" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnPath" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Video">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SecondaryAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HostIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssociatedEquipment" type="s0:AssociatedEquipment" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AssociatedEquipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Item">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentServiceIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineOfBusiness" type="s0:LineOfBusiness" />
+          <s:element minOccurs="0" maxOccurs="1" name="Port" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LineOfBusiness">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Service">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OffPremiseEquipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UnitNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Port" type="s0:Port" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Port">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEquipmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CsgHeaderInfo" type="s0:CsgHeaderInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEquipmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Result" type="s0:Result" />
+            <s:element minOccurs="0" maxOccurs="1" name="EquipmentResult" type="s0:EquipmentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitializeEquipmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CsgHeaderInfo" type="s0:CsgHeaderInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="EquipmentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitializeEquipmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Result" type="s0:Result" />
+            <s:element minOccurs="0" maxOccurs="1" name="InitializeEquipmentResult" type="s0:InitializeEquipmentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InitializeEquipmentResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CsgResponse" type="s0:CsgResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEquipmentInventoryRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CsgHeaderInfo" type="s0:CsgHeaderInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="EquipmentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEquipmentInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Result" type="s0:Result" />
+            <s:element minOccurs="0" maxOccurs="1" name="EquipmentInventoryResult" type="s0:EquipmentInventoryResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EquipmentInventoryResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CsgResponse" type="s0:CsgResponse" />
+          <s:element minOccurs="0" maxOccurs="1" name="Business" type="s0:Business" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentInventory" type="s0:EquipmentInventory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EquipmentInventory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModelDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnershipDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignalType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Component">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PrimaryAddress" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="AddressingMode" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="Tested" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="Usage">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="LockoutPIN" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="MaximumAmount" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="Enabled" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="MaximumQuantity" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="ReturnPath" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="UploadStatus" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="CollectionDate" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="NonRespondingCount" type="s:string" />
+                    </s:sequence>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="Video">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="SecondaryAddress" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="HostIdentifier" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="DataIdentifier" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="HitPriority" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="ParentalPIN" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="AssociatedEquipment" type="s0:AssociatedEquipment" />
+                    </s:sequence>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Service">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="ServiceIdentifier" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="CodeDescription" type="s:string" />
+                    </s:sequence>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Event">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="ItemId" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string" />
+                    </s:sequence>
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+              <s:attribute name="Index" type="s:integer" />
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="Cost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiptDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepairDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UploadCapable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModelEdit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorModel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOCSISVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaximumServiceClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OffPremiseEquipment" type="s0:OffPremiseEquipment" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comment" type="s0:text" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s0:CustomField" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creation" type="s0:Audit" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdate" type="s0:Audit" />
+          <s:element minOccurs="0" maxOccurs="1" name="FailureCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventCount" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="text">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+        </s:sequence>
+        <s:attribute name="Index" type="s:integer" />
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+        <s:attribute name="Index" type="s:integer" />
+      </s:complexType>
+      <s:complexType name="Audit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Terminal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Transaction" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateEquipmentInventoryRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CsgHeaderInfo" type="s0:CsgHeaderInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="EquipmentId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentLocation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Component" type="s0:ComponentUpdate" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiptDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShipDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Comment" type="s0:text" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s0:CustomUpdateField" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ComponentUpdate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressingMode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usage">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="LockoutPIN" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="MaximumAmount" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="MaximumQuantity" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="Video">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="SecondaryAddress" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="HostIdentifier" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="DataIdentifier" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="HitPriority" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="ParentalPIN" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="AssociatedEquipment">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+                      <s:element minOccurs="0" maxOccurs="1" name="ComponentCode" type="s:string" />
+                    </s:sequence>
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+        <s:attribute name="Index" type="s:integer" />
+      </s:complexType>
+      <s:complexType name="CustomUpdateField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+        <s:attribute name="Index" type="s:integer" />
+      </s:complexType>
+      <s:element name="UpdateEquipmentInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Result" type="s0:Result" />
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateEquipmentInventoryResult" type="s0:EquipmentInventoryResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://charter.com/enterprise/billing/equipment">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="CharterHeaderInfo" type="tns:CharterHeaderInfo" />
+      <s:complexType name="CharterHeaderInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TranId" type="s2:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="LogOnly" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="OverrideCache" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataSourceOverride" type="tns:DataSourceOverrideType" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:simpleType name="DataSourceOverrideType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NoOverride" />
+          <s:enumeration value="OverrideToDatabase" />
+          <s:enumeration value="OverrideToRemoteSystem" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExchangeEquipmentSoapIn">
+    <wsdl:part name="exchangeEquipmentRequest" element="s0:ExchangeEquipmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeEquipmentSoapOut">
+    <wsdl:part name="ExchangeEquipmentResult" element="s0:ExchangeEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeEquipmentCharterHeaderInfo">
+    <wsdl:part name="CharterHeaderInfo" element="tns:CharterHeaderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEquipmentSoapIn">
+    <wsdl:part name="getEquipmentRequest" element="s0:GetEquipmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetEquipmentSoapOut">
+    <wsdl:part name="GetEquipmentResult" element="s0:GetEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEquipmentCharterHeaderInfo">
+    <wsdl:part name="CharterHeaderInfo" element="tns:CharterHeaderInfo" />
+  </wsdl:message>
+  <wsdl:message name="InitializeEquipmentSoapIn">
+    <wsdl:part name="initializeEquipmentRequest" element="s0:InitializeEquipmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="InitializeEquipmentSoapOut">
+    <wsdl:part name="InitializeEquipmentResult" element="s0:InitializeEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitializeEquipmentCharterHeaderInfo">
+    <wsdl:part name="CharterHeaderInfo" element="tns:CharterHeaderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEquipmentInventorySoapIn">
+    <wsdl:part name="getEquipmentInventoryRequest" element="s0:GetEquipmentInventoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetEquipmentInventorySoapOut">
+    <wsdl:part name="GetEquipmentInventoryResult" element="s0:GetEquipmentInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEquipmentInventoryCharterHeaderInfo">
+    <wsdl:part name="CharterHeaderInfo" element="tns:CharterHeaderInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEquipmentInventorySoapIn">
+    <wsdl:part name="updateEquipmentInventoryRequest" element="s0:UpdateEquipmentInventoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEquipmentInventorySoapOut">
+    <wsdl:part name="UpdateEquipmentInventoryResult" element="s0:UpdateEquipmentInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEquipmentInventoryCharterHeaderInfo">
+    <wsdl:part name="CharterHeaderInfo" element="tns:CharterHeaderInfo" />
+  </wsdl:message>
+  <wsdl:portType name="EquipmentService">
+    <wsdl:operation name="ExchangeEquipment">
+      <wsdl:input message="tns:ExchangeEquipmentSoapIn" />
+      <wsdl:output message="tns:ExchangeEquipmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipment">
+      <wsdl:input message="tns:GetEquipmentSoapIn" />
+      <wsdl:output message="tns:GetEquipmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitializeEquipment">
+      <wsdl:input message="tns:InitializeEquipmentSoapIn" />
+      <wsdl:output message="tns:InitializeEquipmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentInventory">
+      <wsdl:input message="tns:GetEquipmentInventorySoapIn" />
+      <wsdl:output message="tns:GetEquipmentInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEquipmentInventory">
+      <wsdl:input message="tns:UpdateEquipmentInventorySoapIn" />
+      <wsdl:output message="tns:UpdateEquipmentInventorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EquipmentService" type="tns:EquipmentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExchangeEquipment">
+      <soap:operation soapAction="http://charter.com/enterprise/billing/csg/equipment:exchangeEquipmentIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ExchangeEquipmentCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipment">
+      <soap:operation soapAction="http://charter.com/enterprise/billing/equipment:getEquipmentIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEquipmentCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeEquipment">
+      <soap:operation soapAction="http://charter.com/enterprise/billing/csg/equipment:initializeEquipmentIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InitializeEquipmentCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentInventory">
+      <soap:operation soapAction="http://charter.com/enterprise/billing/csg/equipment:getEquipmentInventoryIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEquipmentInventoryCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEquipmentInventory">
+      <soap:operation soapAction="http://charter.com/enterprise/billing/csg/equipment:updateEquipmentInventoryIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateEquipmentInventoryCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EquipmentService1" type="tns:EquipmentService">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExchangeEquipment">
+      <soap12:operation soapAction="http://charter.com/enterprise/billing/csg/equipment:exchangeEquipmentIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ExchangeEquipmentCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipment">
+      <soap12:operation soapAction="http://charter.com/enterprise/billing/equipment:getEquipmentIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetEquipmentCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeEquipment">
+      <soap12:operation soapAction="http://charter.com/enterprise/billing/csg/equipment:initializeEquipmentIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InitializeEquipmentCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentInventory">
+      <soap12:operation soapAction="http://charter.com/enterprise/billing/csg/equipment:getEquipmentInventoryIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetEquipmentInventoryCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEquipmentInventory">
+      <soap12:operation soapAction="http://charter.com/enterprise/billing/csg/equipment:updateEquipmentInventoryIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateEquipmentInventoryCharterHeaderInfo" part="CharterHeaderInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EquipmentServicePort">
+    <wsdl:port name="EquipmentService" binding="tns:EquipmentService">
+      <soap:address location="http://ebs-prd.corp.chartercom.com/csg/2.06/EquipmentService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EquipmentService1" binding="tns:EquipmentService1">
+      <soap12:address location="http://ebs-prd.corp.chartercom.com/csg/2.06/EquipmentService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,47 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true">
+
+	<diskStore path="java.io.tmpdir" />
+
+	<defaultCache memoryStoreEvictionPolicy="LRU"
+		diskExpiryThreadIntervalSeconds="120" diskPersistent="false"
+		overflowToDisk="true" timeToLiveSeconds="28800" timeToIdleSeconds="28800"
+		eternal="false" maxElementsInMemory="1" />
+
+	<cache name="getAccount" maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="1000" eternal="false" diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="28000" timeToLiveSeconds="32400" transactionalMode="off">
+	</cache>
+	
+	<cache name="listEquipments" maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="1000" eternal="false" diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="28000" timeToLiveSeconds="32400" transactionalMode="off">
+	</cache>
+	
+	<cache name="listEquipmentsSerialNumers" maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="1000" eternal="false" diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="28000" timeToLiveSeconds="32400" transactionalMode="off">
+	</cache>
+	
+	<cache name="getEuipmentStatus" maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="1000" eternal="false" diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="28000" timeToLiveSeconds="32400" transactionalMode="off">
+	</cache>
+	
+	<cache name="getEuipmentType" maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="1000" eternal="false" diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="28000" timeToLiveSeconds="32400" transactionalMode="off">
+	</cache>
+	
+	<cache name="getServices" maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="1000" eternal="false" diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="28000" timeToLiveSeconds="32400" transactionalMode="off">
+	</cache>
+	
+	<cache name="getPackages" maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="1000" eternal="false" diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="28000" timeToLiveSeconds="32400" transactionalMode="off">
+	</cache>
+
+</ehcache>

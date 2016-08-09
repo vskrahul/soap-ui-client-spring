@@ -1,0 +1,126 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+			<bean id = "mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<cache:annotation-driven />
+
+	<context:component-scan
+		base-package="com.charter.enterprise.csg.web,com.charter.enterprise.csg.web.controller,com.charter.enterprise.csg.repository.ws,com.charter.enterprise.csg.service" />
+
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<!-- EhCache Configuration -->
+
+	<bean id="cacheConfig" class="com.charter.enterprise.csg.config.CacheConfig"/>
+	
+	<bean id="cacheManager" factory-bean="cacheConfig" factory-method="cacheManager"/>
+
+	<!-- Context service to lookup beans from Spring Context -->
+
+	<bean id="contextService"
+		class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+		<property name="serviceLocatorInterface"
+			value="com.charter.enterprise.csg.service.ContextService" />
+	</bean>
+
+	<bean id="credentialManager" class="com.charter.enterprise.csg.security.CredentialManager" />
+
+	<!-- Loading All property file once -->
+	<bean id="propConfiguration"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:properties/csg.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="propertyConfigurer"
+		class="com.charter.enterprise.csg.config.CsgPropertyPlaceholderConfigurer">
+		<property name="properties" ref="propConfiguration" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+
+	<mvc:interceptors>
+		<bean
+			class="com.charter.enterprise.csg.web.interceptor.RequestControlInterceptor" />
+	</mvc:interceptors>
+
+	<bean id="accountProxy"
+		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface"
+			value="com.charter.enterprise.billing.csg.accounts.AccountService" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/eai/AccountService.wsdl" />
+		<property name="namespaceUri"
+			value="http://charter.com/enterprise/billing/csg/accounts" />
+		<property name="serviceName" value="AccountServicePort" />
+		<property name="endpointAddress" value="${eai.account.endpoint}" />
+		<property name="portName" value="AccountService" />
+		<property name="username" value="${eai.username}" />
+		<property name="password" value="${eai.password}" />
+	</bean>
+
+	<bean id="equipmentProxy"
+		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface"
+			value="com.charter.enterprise.billing.equipment.EquipmentService" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/eai/EquipmentServices.wsdl" />
+		<property name="namespaceUri"
+			value="http://charter.com/enterprise/billing/equipment" />
+		<property name="serviceName" value="EquipmentServicePort" />
+		<property name="endpointAddress" value="${eai.equipment.endpoint}" />
+		<property name="portName" value="EquipmentService" />
+		<property name="username" value="${eai.username}" />
+		<property name="password" value="${eai.password}" />
+	</bean>
+
+	<bean id="servicesProxy"
+		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface"
+			value="com.charter.enterprise.billing.csg.services.ServicesService" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/eai/ServicesService.wsdl" />
+		<property name="namespaceUri"
+			value="http://charter.com/enterprise/billing/csg/services" />
+		<property name="serviceName" value="ServicesService" />
+		<property name="endpointAddress" value="${eai.services.endpoint}" />
+		<property name="portName" value="ServicesService" />
+		<property name="username" value="${eai.username}" />
+		<property name="password" value="${eai.password}" />
+	</bean>
+	
+	<bean id="prefcommProxy" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface" value="com.charter.enterprise.prefcomm.v1.EnterprisePreferredCommunicationDataService" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/prefcomm/prefcomm.v1.wsdl" />
+		<property name="namespaceUri" value="http://www.charter.com/enterprise/prefcomm/v1" />
+		<property name="serviceName" value="EnterprisePreferredCommunicationSoapEndpointImplService" />
+		<property name="endpointAddress" value="${prefcomm.endpoint}" />
+		<property name="portName" value="EnterprisePreferredCommunicationDataServicePort" />
+		<!-- <property name="username" value="${prefcomm.username}" />
+		<property name="password" value="${prefcomm.password}" /> -->
+	</bean>
+
+	<!-- Just to test if this project able to call SOAP service. -->
+
+	<bean id="weatherProxy"
+		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface" value="com.cdyne.ws.weatherws.WeatherSoap" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/weather.wsdl" />
+		<property name="namespaceUri" value="http://ws.cdyne.com/WeatherWS/" />
+		<property name="serviceName" value="Weather" />
+		<property name="endpointAddress" value="${weather.endpoint}" />
+		<property name="portName" value="WeatherSoap" />
+	</bean>
+
+</beans>
