@@ -23,9 +23,18 @@
 
 	<!-- EhCache Configuration -->
 
-	<bean id="cacheConfig" class="com.charter.enterprise.csg.config.CacheConfig"/>
+	<!-- <bean id="cacheConfig" class="com.charter.enterprise.csg.config.CacheConfig" scope="singleton"/>
 	
-	<bean id="cacheManager" factory-bean="cacheConfig" factory-method="cacheManager"/>
+	<bean id="cacheManager" factory-bean="cacheConfig" factory-method="cacheManager"/> -->
+	
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcache"/>
+	</bean>
+	
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="/WEB-INF/ehcache.xml"/>
+		<property name="shared" value="true"/>
+	</bean>
 
 	<!-- Context service to lookup beans from Spring Context -->
 
@@ -99,9 +108,8 @@
 		<property name="username" value="${eai.username}" />
 		<property name="password" value="${eai.password}" />
 	</bean>
-	
-	<!-- Just to test if this project able to call SOAP service. -->
 
+	<!-- Just to test if this project able to call SOAP service. -->
 	<bean id="weatherProxy"
 		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
 		<property name="serviceInterface" value="com.cdyne.ws.weatherws.WeatherSoap" />
