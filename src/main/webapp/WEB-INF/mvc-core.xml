@@ -100,17 +100,6 @@
 		<property name="password" value="${eai.password}" />
 	</bean>
 	
-	<bean id="prefcommProxy" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
-		<property name="serviceInterface" value="com.charter.enterprise.prefcomm.v1.EnterprisePreferredCommunicationDataService" />
-		<property name="wsdlDocumentUrl" value="classpath:wsdl/prefcomm/prefcomm.v1.wsdl" />
-		<property name="namespaceUri" value="http://www.charter.com/enterprise/prefcomm/v1" />
-		<property name="serviceName" value="EnterprisePreferredCommunicationSoapEndpointImplService" />
-		<property name="endpointAddress" value="${prefcomm.endpoint}" />
-		<property name="portName" value="EnterprisePreferredCommunicationDataServicePort" />
-		<!-- <property name="username" value="${prefcomm.username}" />
-		<property name="password" value="${prefcomm.password}" /> -->
-	</bean>
-
 	<!-- Just to test if this project able to call SOAP service. -->
 
 	<bean id="weatherProxy"

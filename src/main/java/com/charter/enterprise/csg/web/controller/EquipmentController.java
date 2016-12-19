@@ -42,7 +42,7 @@ public class EquipmentController {
 		return equipmentService.listEquipments(accountNumber, routingArea);
 	}
 	
-	@RequestMapping(value = "list", method = {RequestMethod.GET})
+	@RequestMapping(value = "list", method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public List<Equipment> listEquipments(@RequestParam("AccountID") String accountNumber, 
 											@RequestParam(value = "RoutingArea") String routingArea) {
 		logger.info("List of Equipments are trying to fetch from EAI for, AccountID : " + accountNumber + ", Routing Area : " + routingArea);
