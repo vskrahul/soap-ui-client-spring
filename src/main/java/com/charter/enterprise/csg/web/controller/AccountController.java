@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.charter.enterprise.billing.csg.accounts.Account;
 import com.charter.enterprise.csg.service.AccountService;
 
 @org.springframework.web.bind.annotation.RestController
@@ -24,12 +25,6 @@ public class AccountController {
 		logger.info(str);
 		return str;
 	}	
-	
-	@RequestMapping(value = "getAccount", method = {RequestMethod.GET})
-	public Account listEquipmentsJson(@RequestParam("AccountID") String accountNumber, 
-											@RequestParam(value = "RoutingArea") String routingArea) {
-		return accountService.getAccount(accountNumber, routingArea);
-	}
 	
 	@RequestMapping(value = "getAccount", method = {RequestMethod.GET})
 	public Account listEquipmentsJson(@RequestParam("AccountID") String accountNumber, 
