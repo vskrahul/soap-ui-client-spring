@@ -1,8 +1,5 @@
 package com.charter.enterprise.csg.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
 //@ResponseStatus(value = HttpStatus.FORBIDDEN, reason = "Request is blocked as you reached the maximum allowed limit in one hour.")
 public class ForbiddenException extends RuntimeException {
 
