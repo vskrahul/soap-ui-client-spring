@@ -25,27 +25,8 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 	
 	@Override
 	public void setProperties(Properties properties) {
-		loadPrefcommProperties(properties);
 		loadEAIProperties(properties);
 		super.setProperties(properties);
-	}
-	
-	/**
-	 * Load Prefcomm Properties
-	 * @param properties
-	 */
-	private void loadPrefcommProperties(Properties properties) {
-		
-		String env = properties.getProperty("environment.prefcomm", "prod");
-		
-		String username = properties.getProperty(env + ".prefcomm.username");
-		String password = properties.getProperty(env + ".prefcomm.password");
-		
-		String prefcommEndPoint = properties.getProperty(env + ".prefcomm.endpoint");
-		
-		properties.setProperty("prefcomm.username", username);
-		properties.setProperty("prefcomm.password", password);
-		properties.setProperty("prefcomm.endpoint", prefcommEndPoint);
 	}
 	
 	/**

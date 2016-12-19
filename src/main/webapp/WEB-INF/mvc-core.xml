@@ -23,9 +23,18 @@
 
 	<!-- EhCache Configuration -->
 
-	<bean id="cacheConfig" class="com.charter.enterprise.csg.config.CacheConfig"/>
+	<!-- <bean id="cacheConfig" class="com.charter.enterprise.csg.config.CacheConfig" scope="singleton"/>
 	
-	<bean id="cacheManager" factory-bean="cacheConfig" factory-method="cacheManager"/>
+	<bean id="cacheManager" factory-bean="cacheConfig" factory-method="cacheManager"/> -->
+	
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcache"/>
+	</bean>
+	
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="/WEB-INF/ehcache.xml"/>
+		<property name="shared" value="true"/>
+	</bean>
 
 	<!-- Context service to lookup beans from Spring Context -->
 
@@ -98,17 +107,6 @@
 		<property name="portName" value="ServicesService" />
 		<property name="username" value="${eai.username}" />
 		<property name="password" value="${eai.password}" />
-	</bean>
-	
-	<bean id="prefcommProxy" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
-		<property name="serviceInterface" value="com.charter.enterprise.prefcomm.v1.EnterprisePreferredCommunicationDataService" />
-		<property name="wsdlDocumentUrl" value="classpath:wsdl/prefcomm/prefcomm.v1.wsdl" />
-		<property name="namespaceUri" value="http://www.charter.com/enterprise/prefcomm/v1" />
-		<property name="serviceName" value="EnterprisePreferredCommunicationSoapEndpointImplService" />
-		<property name="endpointAddress" value="${prefcomm.endpoint}" />
-		<property name="portName" value="EnterprisePreferredCommunicationDataServicePort" />
-		<!-- <property name="username" value="${prefcomm.username}" />
-		<property name="password" value="${prefcomm.password}" /> -->
 	</bean>
 
 	<!-- Just to test if this project able to call SOAP service. -->
