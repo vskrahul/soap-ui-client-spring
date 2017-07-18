@@ -20,7 +20,7 @@ import com.charter.enterprise.customer.queryidentity.QueryIdentityResponseType;
  *
  */
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping(value = "query-identity")
+@RequestMapping(value = "soa")
 public class SOAQueryIdentityController {
 
 	private Logger logger = LoggerFactory.getLogger(SOAQueryIdentityController.class);
@@ -28,7 +28,7 @@ public class SOAQueryIdentityController {
 	@Autowired
 	private QueryIdentityService service;
 	
-	@RequestMapping(value = "process", method = {RequestMethod.GET})
+	@RequestMapping(value = "query-identity", method = {RequestMethod.GET})
 	public QueryIdentityResponseType queryIdentity(@RequestParam("AccountID") String accountNumber
 													, @RequestParam(name = "ClientIP", required = false, defaultValue = "192.168.1.1") String clientIp
 													, @RequestParam(name = "AuditUser", required = false, defaultValue = "apcoe") String auditUser) {
