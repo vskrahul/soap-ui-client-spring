@@ -61,6 +61,11 @@
 		<property name="properties" ref="propConfiguration" />
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
+	
+	<bean id="soaSecurityHandlerResolver" class="com.charter.enterprise.csg.security.SoaSecurityHandlerResolver">
+		<property name="username" value="${soa.username}"/>
+		<property name="password" value="${soa.password}"/>
+	</bean>
 
 	<mvc:interceptors>
 		<bean
@@ -107,6 +112,17 @@
 		<property name="portName" value="ServicesService" />
 		<property name="username" value="${eai.username}" />
 		<property name="password" value="${eai.password}" />
+	</bean>
+
+	<bean id="queryIdentity"
+		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface" value="com.charter.enterprise.customer.queryidentity.QueryIdentityIDMDBReqABCSImpl" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/soa/QueryIdentity_V1.wsdl" />
+		<property name="namespaceUri" value="http://charter.com/enterprise/customer/QueryIdentity" />
+		<property name="serviceName" value="QueryIdentityIDMDBReqABCSImplBindingQSService" />
+		<property name="endpointAddress" value="${soa.queryidentity.endpoint.endpoint}" />
+		<property name="portName" value="QueryIdentityIDMDBReqABCSImplBindingQSPort" />
+		<property name="handlerResolver" ref="soaSecurityHandlerResolver"/>
 	</bean>
 
 	<!-- Just to test if this project able to call SOAP service. -->

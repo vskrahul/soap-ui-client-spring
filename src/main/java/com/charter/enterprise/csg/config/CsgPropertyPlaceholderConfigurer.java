@@ -39,11 +39,17 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		String username = credentialManager.decrypt(properties.getProperty(environment  + ".username"));
 		String password = credentialManager.decrypt(properties.getProperty(environment  + ".password"));
 		
+		String soaUserName = credentialManager.decrypt(properties.getProperty(environment  + ".soa.username"));
+		String soaPassword = credentialManager.decrypt(properties.getProperty(environment  + ".soa.password"));
+		
 		String equipmentEndPoint = properties.getProperty(environment + ".equipment.endpoint");
 		String accountEndPoint = properties.getProperty(environment + ".account.endpoint");
 		String servicesEndPoint = properties.getProperty(environment + ".services.endpoint");
 		
+		String soaQueryIndentityEndpoint = properties.getProperty(environment + ".soa.queryidentity.endpoint");
+		
 		String eaiAllowedRequests = properties.getProperty(environment + ".eai.request.perhour");
+		String soaAllowedRequests = properties.getProperty(environment + ".soa.request.perhour");
 		
 		RequestCounts _instance = RequestCounts.getInstance();
 		try {
@@ -57,9 +63,15 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		
 		properties.setProperty("eai.username", username);
 		properties.setProperty("eai.password", password);
+		properties.setProperty("soa.username", soaUserName);
+		properties.setProperty("soa.password", soaPassword);
+		
 		properties.setProperty("eai.equipment.endpoint", equipmentEndPoint);
 		properties.setProperty("eai.account.endpoint", accountEndPoint);
 		properties.setProperty("eai.services.endpoint", servicesEndPoint);
+		properties.setProperty("soa.queryidentity.endpoint.endpoint", soaQueryIndentityEndpoint);
+		
 		properties.setProperty("eai.request.perhour", eaiAllowedRequests);
+		properties.setProperty("soa.request.perhour", soaAllowedRequests);
 	}
 }

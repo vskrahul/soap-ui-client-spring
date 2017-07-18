@@ -243,6 +243,13 @@
 			<artifactId>spring-context-support</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.ws.security/wss4j -->
+		<!-- <dependency>
+			<groupId>org.apache.ws.security</groupId>
+			<artifactId>wss4j</artifactId>
+			<version>1.6.19</version>
+		</dependency> -->
+
 	</dependencies>
 
 	<build>
@@ -267,6 +274,7 @@
 						<wsdlFile>eai/AccountService.wsdl</wsdlFile>
 						<wsdlFile>eai/EquipmentServices.wsdl</wsdlFile>
 						<wsdlFile>eai/ServicesService.wsdl</wsdlFile>
+						<wsdlFile>soa/QueryIdentity_V1.wsdl</wsdlFile>
 						<!-- Just to test if This project is able to call SOAP successfully. -->
 						<wsdlFile>weather.wsdl</wsdlFile>
 					</wsdlFiles>
@@ -298,7 +306,7 @@
 								<bannedDependencies>
 									<searchTransitive>true</searchTransitive>
 									<excludes>
-										<exclude>commons-logging</exclude>
+										<!-- <exclude>commons-logging</exclude> -->
 										<exclude>org.slf4j:1.5*</exclude>
 										<exclude>org.slf4j:1.6*</exclude>
 										<exclude>org.springframework:2.*</exclude>

@@ -43,6 +43,7 @@ public class CredentialManager {
 	 * @param unencryptedString
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	private String encrypt(String unencryptedString) {
 		String encryptedString = null;
 		try {

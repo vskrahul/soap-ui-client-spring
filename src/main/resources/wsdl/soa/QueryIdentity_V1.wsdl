@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="QueryIdentityIDMDBReqABCSImpl" targetNamespace="http://charter.com/enterprise/customer/QueryIdentity" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://charter.com/enterprise/customer/QueryIdentity" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:documentation>https://kstllsoal31:7002/soa-infra/services/default/QueryIdentityIDMDBReqABCSImpl!1.0/QueryIdentityIDMDBReqABCSImpl.wsdl</wsdl:documentation>
+    <wsp:Policy WL5G3N0:Id="wss_username_token_service_policy">
+        <sp:SupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+            <wsp:Policy>
+                <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                    <wsp:Policy>
+                        <sp:WssUsernameToken10/>
+                    </wsp:Policy>
+                </sp:UsernameToken>
+            </wsp:Policy>
+        </sp:SupportingTokens>
+    </wsp:Policy>
+    <plnk:partnerLinkType name="QueryIdentityIDMDBReqABCSImpl">
+        <plnk:role name="QueryIdentityIDMDBReqABCSImplProvider" portType="client:QueryIdentityIDMDBReqABCSImpl"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://charter.com/enterprise/customer/QueryIdentity" schemaLocation="https://esbauth.corp.chartercom.com:11102/QueryIdentity/proxy/PS_QueryIdentity_v1r0?SCHEMA%2FQueryIdentity%2Fproxy%2Fxsd%2FQueryIdentity"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="QueryIdentityIDMDBReqABCSImplRequestMessage">
+        <wsdl:part name="payload" element="client:QueryIdentityRequest"/>
+    </wsdl:message>
+    <wsdl:message name="QueryIdentityIDMDBReqABCSImplResponseMessage">
+        <wsdl:part name="payload" element="client:QueryIdentityResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="QueryIdentityIDMDBReqABCSImpl">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:QueryIdentityIDMDBReqABCSImplRequestMessage"/>
+            <wsdl:output message="client:QueryIdentityIDMDBReqABCSImplResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="QueryIdentityIDMDBReqABCSImplBinding" type="client:QueryIdentityIDMDBReqABCSImpl">
+        <wsp:Policy>
+            <wsp:PolicyReference URI="#wss_username_token_service_policy"/>
+        </wsp:Policy>
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="process"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://charter.com/enterprise/customer/QueryIdentity"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://charter.com/enterprise/customer/QueryIdentity"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="QueryIdentityIDMDBReqABCSImplBindingQSService">
+        <wsdl:port name="QueryIdentityIDMDBReqABCSImplBindingQSPort" binding="client:QueryIdentityIDMDBReqABCSImplBinding">
+            <soap:address location="https://esbauth.corp.chartercom.com:11102/QueryIdentity/proxy/PS_QueryIdentity_v1r0"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
