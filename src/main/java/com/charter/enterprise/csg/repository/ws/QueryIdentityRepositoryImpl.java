@@ -31,9 +31,6 @@ public class QueryIdentityRepositoryImpl implements QueryIdentityRepository {
 	@Qualifier("queryIdentity")
 	private JaxWsPortProxyFactoryBean queryIdentity;
 	
-	/* (non-Javadoc)
-	 * @see com.charter.enterprise.csg.repository.QueryIdentityRepository#process(com.charter.enterprise.customer.queryidentity.QueryIdentityRequestType)
-	 */
 	@Override
 	public QueryIdentityResponseType process(QueryIdentityRequestType request) {
 		QueryIdentityIDMDBReqABCSImpl service = (QueryIdentityIDMDBReqABCSImpl)queryIdentity.getObject();

@@ -1,18 +1,33 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter" />
-			<bean id = "mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+			<bean id="mappingJackson2HttpMessageConverter"
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="java.lang.System" />
+		<property name="targetMethod" value="setProperty" />
+		<property name="arguments">
+			<list>
+				<value type="java.lang.String">javax.net.ssl.trustStore</value>
+				<value type="java.lang.String">${systemProperties.JAVA_HOME}/lib/security/cacerts</value>
+			</list>
+		</property>
+	</bean>
+
 
 	<cache:annotation-driven />
 
@@ -23,17 +38,17 @@
 
 	<!-- EhCache Configuration -->
 
-	<!-- <bean id="cacheConfig" class="com.charter.enterprise.csg.config.CacheConfig" scope="singleton"/>
-	
-	<bean id="cacheManager" factory-bean="cacheConfig" factory-method="cacheManager"/> -->
-	
+	<!-- <bean id="cacheConfig" class="com.charter.enterprise.csg.config.CacheConfig" 
+		scope="singleton"/> <bean id="cacheManager" factory-bean="cacheConfig" factory-method="cacheManager"/> -->
+
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-		<property name="cacheManager" ref="ehcache"/>
+		<property name="cacheManager" ref="ehcache" />
 	</bean>
-	
-	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-		<property name="configLocation" value="/WEB-INF/ehcache.xml"/>
-		<property name="shared" value="true"/>
+
+	<bean id="ehcache"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="/WEB-INF/ehcache.xml" />
+		<property name="shared" value="true" />
 	</bean>
 
 	<!-- Context service to lookup beans from Spring Context -->
@@ -61,10 +76,11 @@
 		<property name="properties" ref="propConfiguration" />
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
-	
-	<bean id="soaSecurityHandlerResolver" class="com.charter.enterprise.csg.security.SoaSecurityHandlerResolver">
-		<property name="username" value="${soa.username}"/>
-		<property name="password" value="${soa.password}"/>
+
+	<bean id="soaSecurityHandlerResolver"
+		class="com.charter.enterprise.csg.security.SoaSecurityHandlerResolver">
+		<property name="username" value="${soa.username}" />
+		<property name="password" value="${soa.password}" />
 	</bean>
 
 	<mvc:interceptors>
@@ -116,13 +132,16 @@
 
 	<bean id="queryIdentity"
 		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
-		<property name="serviceInterface" value="com.charter.enterprise.customer.queryidentity.QueryIdentityIDMDBReqABCSImpl" />
+		<property name="serviceInterface"
+			value="com.charter.enterprise.customer.queryidentity.QueryIdentityIDMDBReqABCSImpl" />
 		<property name="wsdlDocumentUrl" value="classpath:wsdl/soa/QueryIdentity_V1.wsdl" />
-		<property name="namespaceUri" value="http://charter.com/enterprise/customer/QueryIdentity" />
-		<property name="serviceName" value="QueryIdentityIDMDBReqABCSImplBindingQSService" />
+		<property name="namespaceUri"
+			value="http://charter.com/enterprise/customer/QueryIdentity" />
+		<property name="serviceName"
+			value="QueryIdentityIDMDBReqABCSImplBindingQSService" />
 		<property name="endpointAddress" value="${soa.queryidentity.endpoint.endpoint}" />
 		<property name="portName" value="QueryIdentityIDMDBReqABCSImplBindingQSPort" />
-		<property name="handlerResolver" ref="soaSecurityHandlerResolver"/>
+		<property name="handlerResolver" ref="soaSecurityHandlerResolver" />
 	</bean>
 
 	<!-- Just to test if this project able to call SOAP service. -->
