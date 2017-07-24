@@ -3,6 +3,8 @@
  */
 package com.charter.enterprise.csg.repository.ws;
 
+import java.io.File;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +13,8 @@ import org.springframework.remoting.RemoteAccessException;
 import org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean;
 import org.springframework.stereotype.Repository;
 
-import com.charter.enterprise.csg.exception.RemoteException;
+import com.charter.enterprise.csg.exception.SoaOsbException;
 import com.charter.enterprise.csg.repository.QueryIdentityRepository;
-import com.charter.enterprise.csg.web.interceptor.RequestCounts;
 import com.charter.enterprise.customer.queryidentity.QueryIdentityIDMDBReqABCSImpl;
 import com.charter.enterprise.customer.queryidentity.QueryIdentityRequestType;
 import com.charter.enterprise.customer.queryidentity.QueryIdentityResponseType;
@@ -31,20 +32,27 @@ public class QueryIdentityRepositoryImpl implements QueryIdentityRepository {
 	@Qualifier("queryIdentity")
 	private JaxWsPortProxyFactoryBean queryIdentity;
 	
+	public QueryIdentityRepositoryImpl() {
+		String trustStore = System.getenv("JAVA_HOME") + File.separator
+									+ "jre" + File.separator
+									+ "lib" + File.separator
+									+ "security" + File.separator
+									+ "cacerts";
+		System.setProperty("javax.net.ssl.trustStore", trustStore);
+		System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+		System.setProperty("javax.net.debug", "ssl");
+	}
+	
 	@Override
 	public QueryIdentityResponseType process(QueryIdentityRequestType request) {
 		QueryIdentityIDMDBReqABCSImpl service = (QueryIdentityIDMDBReqABCSImpl)queryIdentity.getObject();
 		
 		QueryIdentityResponseType response = null;
-		
 		try {
 			response = service.process(request);
 		} catch(RemoteAccessException e) {
 			logger.error(e.getMessage());
-			throw new RemoteException();
-		} finally {
-			RequestCounts instance = RequestCounts.getInstance();
-			instance.setRequestCounter(instance.getRequestCounter() + 1);
+			throw new SoaOsbException(e.getMessage());
 		}
 		
 		return response;

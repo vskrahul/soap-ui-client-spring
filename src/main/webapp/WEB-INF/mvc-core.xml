@@ -16,19 +16,6 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-	<bean
-		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetClass" value="java.lang.System" />
-		<property name="targetMethod" value="setProperty" />
-		<property name="arguments">
-			<list>
-				<value type="java.lang.String">javax.net.ssl.trustStore</value>
-				<value type="java.lang.String">${systemProperties.JAVA_HOME}/lib/security/cacerts</value>
-			</list>
-		</property>
-	</bean>
-
-
 	<cache:annotation-driven />
 
 	<context:component-scan
