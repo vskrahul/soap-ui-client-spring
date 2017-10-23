@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="wasAttempted" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
- *         &lt;element name="ExceptionInfo" type="{http://charter.com/enterprise/billing/csg/orders}ResultExceptionInfo1" minOccurs="0"/>
+ *         &lt;element name="ExceptionInfo" type="{http://charter.com/enterprise/billing/csg/orders}ResultExceptionInfo" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,7 +36,7 @@ public class MultiCallResult {
 
     protected boolean wasAttempted;
     @XmlElement(name = "ExceptionInfo")
-    protected ResultExceptionInfo1 exceptionInfo;
+    protected ResultExceptionInfo2 exceptionInfo;
 
     /**
      * Gets the value of the wasAttempted property.
@@ -59,10 +59,10 @@ public class MultiCallResult {
      * 
      * @return
      *     possible object is
-     *     {@link ResultExceptionInfo1 }
+     *     {@link ResultExceptionInfo2 }
      *     
      */
-    public ResultExceptionInfo1 getExceptionInfo() {
+    public ResultExceptionInfo2 getExceptionInfo() {
         return exceptionInfo;
     }
 
@@ -71,10 +71,10 @@ public class MultiCallResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link ResultExceptionInfo1 }
+     *     {@link ResultExceptionInfo2 }
      *     
      */
-    public void setExceptionInfo(ResultExceptionInfo1 value) {
+    public void setExceptionInfo(ResultExceptionInfo2 value) {
         this.exceptionInfo = value;
     }
 

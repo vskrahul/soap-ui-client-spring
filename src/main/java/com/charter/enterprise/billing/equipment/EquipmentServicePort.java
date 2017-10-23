@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "EquipmentServicePort", targetNamespace = "http://charter.com/enterprise/billing/equipment", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/EquipmentServices.wsdl")
+@WebServiceClient(name = "EquipmentServicePort", targetNamespace = "http://charter.com/enterprise/billing/equipment", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/EquipmentServices.wsdl")
 public class EquipmentServicePort
     extends Service
 {
@@ -30,9 +30,9 @@ public class EquipmentServicePort
         try {
             URL baseUrl;
             baseUrl = com.charter.enterprise.billing.equipment.EquipmentServicePort.class.getResource(".");
-            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/EquipmentServices.wsdl");
+            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/EquipmentServices.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/EquipmentServices.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/EquipmentServices.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         EQUIPMENTSERVICEPORT_WSDL_LOCATION = url;

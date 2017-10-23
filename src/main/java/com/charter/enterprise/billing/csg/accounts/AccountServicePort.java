@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "AccountServicePort", targetNamespace = "http://charter.com/enterprise/billing/csg/accounts", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/AccountService.wsdl")
+@WebServiceClient(name = "AccountServicePort", targetNamespace = "http://charter.com/enterprise/billing/csg/accounts", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/AccountService.wsdl")
 public class AccountServicePort
     extends Service
 {
@@ -30,9 +30,9 @@ public class AccountServicePort
         try {
             URL baseUrl;
             baseUrl = com.charter.enterprise.billing.csg.accounts.AccountServicePort.class.getResource(".");
-            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/AccountService.wsdl");
+            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/AccountService.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/AccountService.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/AccountService.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         ACCOUNTSERVICEPORT_WSDL_LOCATION = url;

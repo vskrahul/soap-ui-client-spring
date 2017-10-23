@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "Weather", targetNamespace = "http://ws.cdyne.com/WeatherWS/", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/weather.wsdl")
+@WebServiceClient(name = "Weather", targetNamespace = "http://ws.cdyne.com/WeatherWS/", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/weather.wsdl")
 public class Weather
     extends Service
 {
@@ -30,9 +30,9 @@ public class Weather
         try {
             URL baseUrl;
             baseUrl = com.cdyne.ws.weatherws.Weather.class.getResource(".");
-            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/weather.wsdl");
+            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/weather.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/weather.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/weather.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         WEATHER_WSDL_LOCATION = url;

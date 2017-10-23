@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;choice>
+ *           &lt;element name="ReservationID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *           &lt;element name="TelephoneID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *           &lt;element name="AreaCodeExchange" minOccurs="0">
  *             &lt;complexType>
@@ -31,7 +32,6 @@ import javax.xml.bind.annotation.XmlType;
  *               &lt;/complexContent>
  *             &lt;/complexType>
  *           &lt;/element>
- *           &lt;element name="ReservationID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;/choice>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -43,18 +43,42 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AvailableNumbersCriteria", propOrder = {
+    "reservationID",
     "telephoneID",
-    "areaCodeExchange",
-    "reservationID"
+    "areaCodeExchange"
 })
 public class AvailableNumbersCriteria {
 
+    @XmlElement(name = "ReservationID")
+    protected String reservationID;
     @XmlElement(name = "TelephoneID")
     protected String telephoneID;
     @XmlElement(name = "AreaCodeExchange")
     protected AvailableNumbersCriteria.AreaCodeExchange areaCodeExchange;
-    @XmlElement(name = "ReservationID")
-    protected String reservationID;
+
+    /**
+     * Gets the value of the reservationID property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getReservationID() {
+        return reservationID;
+    }
+
+    /**
+     * Sets the value of the reservationID property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setReservationID(String value) {
+        this.reservationID = value;
+    }
 
     /**
      * Gets the value of the telephoneID property.
@@ -102,30 +126,6 @@ public class AvailableNumbersCriteria {
      */
     public void setAreaCodeExchange(AvailableNumbersCriteria.AreaCodeExchange value) {
         this.areaCodeExchange = value;
-    }
-
-    /**
-     * Gets the value of the reservationID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getReservationID() {
-        return reservationID;
-    }
-
-    /**
-     * Sets the value of the reservationID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setReservationID(String value) {
-        this.reservationID = value;
     }
 
 

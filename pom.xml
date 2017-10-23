@@ -9,7 +9,7 @@
 
 	<properties>
 		<!-- Java -->
-		<jdk.version>1.7</jdk.version>
+		<jdk.version>1.8</jdk.version>
 
 		<!-- Spring -->
 		<spring.version>4.2.3.RELEASE</spring.version>
@@ -268,12 +268,16 @@
 					</execution>
 				</executions>
 				<configuration>
+					<xjcArgs>
+						<xjcArg>-XautoNameResolution</xjcArg>
+					</xjcArgs>
 					<verbose>true</verbose>
 					<wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
 					<wsdlFiles>
 						<wsdlFile>eai/AccountService.wsdl</wsdlFile>
 						<wsdlFile>eai/EquipmentServices.wsdl</wsdlFile>
 						<wsdlFile>eai/ServicesService.wsdl</wsdlFile>
+						<wsdlFile>eai/OrderService.wsdl</wsdlFile>
 						<wsdlFile>soa/QueryIdentity_V1.wsdl</wsdlFile>
 						<!-- Just to test if This project is able to call SOAP successfully. -->
 						<wsdlFile>weather.wsdl</wsdlFile>

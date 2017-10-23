@@ -116,6 +116,17 @@
 		<property name="username" value="${eai.username}" />
 		<property name="password" value="${eai.password}" />
 	</bean>
+	
+	<bean id="orderProxy" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface" value="com.charter.enterprise.billing.csg.orders.OrderService"/>
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/eai/OrderService.wsdl"/>
+		<property name="namespaceUri" value="http://charter.com/enterprise/billing/csg/orders"/>
+		<property name="serviceName" value="OrderServicePort"/>
+		<property name="endpointAddress" value="${prod.order.endpoint}"/>
+		<property name="portName" value="OrderService"/>
+		<property name="username" value="${eai.username}" />
+		<property name="password" value="${eai.password}" />
+	</bean>
 
 	<bean id="queryIdentity"
 		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">

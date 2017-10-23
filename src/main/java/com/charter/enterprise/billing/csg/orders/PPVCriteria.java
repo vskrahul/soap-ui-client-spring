@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;choice>
+ *           &lt;element name="AccountId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *           &lt;element name="TelephoneNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *           &lt;element name="CustomerId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *           &lt;element name="AccountId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;/choice>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -32,18 +32,42 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PPVCriteria", propOrder = {
+    "accountId",
     "telephoneNumber",
-    "customerId",
-    "accountId"
+    "customerId"
 })
 public class PPVCriteria {
 
+    @XmlElement(name = "AccountId")
+    protected String accountId;
     @XmlElement(name = "TelephoneNumber")
     protected String telephoneNumber;
     @XmlElement(name = "CustomerId")
     protected String customerId;
-    @XmlElement(name = "AccountId")
-    protected String accountId;
+
+    /**
+     * Gets the value of the accountId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAccountId() {
+        return accountId;
+    }
+
+    /**
+     * Sets the value of the accountId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAccountId(String value) {
+        this.accountId = value;
+    }
 
     /**
      * Gets the value of the telephoneNumber property.
@@ -91,30 +115,6 @@ public class PPVCriteria {
      */
     public void setCustomerId(String value) {
         this.customerId = value;
-    }
-
-    /**
-     * Gets the value of the accountId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAccountId() {
-        return accountId;
-    }
-
-    /**
-     * Sets the value of the accountId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAccountId(String value) {
-        this.accountId = value;
     }
 
 }

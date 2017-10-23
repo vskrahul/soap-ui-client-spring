@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Result1" type="{http://charter.com/enterprise/billing/csg/orders}Result1" minOccurs="0"/>
+ *         &lt;element name="Result" type="{http://charter.com/enterprise/billing/csg/orders}Result" minOccurs="0"/>
  *         &lt;element name="JobID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Sequence" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PrimarySchedule" type="{http://charter.com/enterprise/billing/csg/orders}AddOrderScheduleSchedule" minOccurs="0"/>
@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AddOrderScheduleJobResult", propOrder = {
-    "result1",
+    "result",
     "jobID",
     "sequence",
     "primarySchedule",
@@ -42,8 +42,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class AddOrderScheduleJobResult {
 
-    @XmlElement(name = "Result1")
-    protected Result1 result1;
+    @XmlElement(name = "Result")
+    protected Result2 result;
     @XmlElement(name = "JobID")
     protected String jobID;
     @XmlElement(name = "Sequence")
@@ -56,27 +56,27 @@ public class AddOrderScheduleJobResult {
     protected AddOrderScheduleSchedule tertiarySchedule;
 
     /**
-     * Gets the value of the result1 property.
+     * Gets the value of the result property.
      * 
      * @return
      *     possible object is
-     *     {@link Result1 }
+     *     {@link Result2 }
      *     
      */
-    public Result1 getResult1() {
-        return result1;
+    public Result2 getResult() {
+        return result;
     }
 
     /**
-     * Sets the value of the result1 property.
+     * Sets the value of the result property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Result1 }
+     *     {@link Result2 }
      *     
      */
-    public void setResult1(Result1 value) {
-        this.result1 = value;
+    public void setResult(Result2 value) {
+        this.result = value;
     }
 
     /**

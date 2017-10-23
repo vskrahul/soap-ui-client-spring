@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "ServicesService", targetNamespace = "http://charter.com/enterprise/billing/csg/services", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/ServicesService.wsdl")
+@WebServiceClient(name = "ServicesService", targetNamespace = "http://charter.com/enterprise/billing/csg/services", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/ServicesService.wsdl")
 public class ServicesService_Service
     extends Service
 {
@@ -30,9 +30,9 @@ public class ServicesService_Service
         try {
             URL baseUrl;
             baseUrl = com.charter.enterprise.billing.csg.services.ServicesService_Service.class.getResource(".");
-            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/ServicesService.wsdl");
+            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/ServicesService.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/eai/ServicesService.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/eai/ServicesService.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         SERVICESSERVICE_WSDL_LOCATION = url;

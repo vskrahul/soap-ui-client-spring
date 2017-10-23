@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "QueryIdentityIDMDBReqABCSImplBindingQSService", targetNamespace = "http://charter.com/enterprise/customer/QueryIdentity", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/soa/QueryIdentity_V1.wsdl")
+@WebServiceClient(name = "QueryIdentityIDMDBReqABCSImplBindingQSService", targetNamespace = "http://charter.com/enterprise/customer/QueryIdentity", wsdlLocation = "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/soa/QueryIdentity_V1.wsdl")
 public class QueryIdentityIDMDBReqABCSImplBindingQSService
     extends Service
 {
@@ -30,9 +30,9 @@ public class QueryIdentityIDMDBReqABCSImplBindingQSService
         try {
             URL baseUrl;
             baseUrl = com.charter.enterprise.customer.queryidentity.QueryIdentityIDMDBReqABCSImplBindingQSService.class.getResource(".");
-            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/soa/QueryIdentity_V1.wsdl");
+            url = new URL(baseUrl, "file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/soa/QueryIdentity_V1.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/master/src/main/resources/wsdl/soa/QueryIdentity_V1.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:/D:/project/Git%20Lab/CSG-API/src/main/resources/wsdl/soa/QueryIdentity_V1.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         QUERYIDENTITYIDMDBREQABCSIMPLBINDINGQSSERVICE_WSDL_LOCATION = url;

@@ -21,12 +21,11 @@ import javax.xml.namespace.QName;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="TranId" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="TranId" type="{http://microsoft.com/wsdl/types/}guid"/>
  *         &lt;element name="LogOnly" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="OverrideCache" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="DataSourceOverride" type="{http://charter.com/enterprise/billing/csg/orders}DataSourceOverrideType"/>
  *       &lt;/sequence>
- *       &lt;anyAttribute/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>

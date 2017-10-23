@@ -27,8 +27,8 @@ import javax.xml.bind.annotation.XmlType;
  *                 &lt;sequence>
  *                   &lt;element name="TechnicianArea" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;choice>
- *                     &lt;element name="Date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                     &lt;element name="Category" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                     &lt;element name="Date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                   &lt;/choice>
  *                 &lt;/sequence>
  *               &lt;/restriction>
@@ -185,8 +185,8 @@ public class GetScheduleListRequest {
      *       &lt;sequence>
      *         &lt;element name="TechnicianArea" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;choice>
-     *           &lt;element name="Date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *           &lt;element name="Category" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+     *           &lt;element name="Date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *         &lt;/choice>
      *       &lt;/sequence>
      *     &lt;/restriction>
@@ -199,17 +199,17 @@ public class GetScheduleListRequest {
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "technicianArea",
-        "date",
-        "category"
+        "category",
+        "date"
     })
     public static class Schedule {
 
         @XmlElement(name = "TechnicianArea")
         protected String technicianArea;
-        @XmlElement(name = "Date")
-        protected String date;
         @XmlElement(name = "Category")
         protected String category;
+        @XmlElement(name = "Date")
+        protected String date;
 
         /**
          * Gets the value of the technicianArea property.
@@ -236,30 +236,6 @@ public class GetScheduleListRequest {
         }
 
         /**
-         * Gets the value of the date property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getDate() {
-            return date;
-        }
-
-        /**
-         * Sets the value of the date property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setDate(String value) {
-            this.date = value;
-        }
-
-        /**
          * Gets the value of the category property.
          * 
          * @return
@@ -281,6 +257,30 @@ public class GetScheduleListRequest {
          */
         public void setCategory(String value) {
             this.category = value;
+        }
+
+        /**
+         * Gets the value of the date property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getDate() {
+            return date;
+        }
+
+        /**
+         * Sets the value of the date property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setDate(String value) {
+            this.date = value;
         }
 
     }
