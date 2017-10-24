@@ -30,19 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateEquipmentInventoryResponse }
+     * Create an instance of {@link GetEquipmentResponse }
      * 
      */
-    public UpdateEquipmentInventoryResponse createUpdateEquipmentInventoryResponse() {
-        return new UpdateEquipmentInventoryResponse();
-    }
-
-    /**
-     * Create an instance of {@link ExchangeEquipment.Component.Video.AssociatedEquipment }
-     * 
-     */
-    public ExchangeEquipment.Component.Video.AssociatedEquipment createExchangeEquipmentComponentVideoAssociatedEquipment() {
-        return new ExchangeEquipment.Component.Video.AssociatedEquipment();
+    public GetEquipmentResponse createGetEquipmentResponse() {
+        return new GetEquipmentResponse();
     }
 
     /**
@@ -54,83 +46,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link OffPremiseEquipment }
+     * Create an instance of {@link ExchangeEquipment.Alert }
      * 
      */
-    public OffPremiseEquipment createOffPremiseEquipment() {
-        return new OffPremiseEquipment();
-    }
-
-    /**
-     * Create an instance of {@link com.charter.enterprise.billing.csg.equipment.Component }
-     * 
-     */
-    public com.charter.enterprise.billing.csg.equipment.Component createComponent() {
-        return new com.charter.enterprise.billing.csg.equipment.Component();
-    }
-
-    /**
-     * Create an instance of {@link ExchangeEquipment.Component.Video }
-     * 
-     */
-    public ExchangeEquipment.Component.Video createExchangeEquipmentComponentVideo() {
-        return new ExchangeEquipment.Component.Video();
-    }
-
-    /**
-     * Create an instance of {@link InitializeEquipmentResponse }
-     * 
-     */
-    public InitializeEquipmentResponse createInitializeEquipmentResponse() {
-        return new InitializeEquipmentResponse();
-    }
-
-    /**
-     * Create an instance of {@link ExchangeEquipment.Component.Item }
-     * 
-     */
-    public ExchangeEquipment.Component.Item createExchangeEquipmentComponentItem() {
-        return new ExchangeEquipment.Component.Item();
-    }
-
-    /**
-     * Create an instance of {@link Customer }
-     * 
-     */
-    public Customer createCustomer() {
-        return new Customer();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfEquipment }
-     * 
-     */
-    public ArrayOfEquipment createArrayOfEquipment() {
-        return new ArrayOfEquipment();
-    }
-
-    /**
-     * Create an instance of {@link EquipmentInventory.Component.Service }
-     * 
-     */
-    public EquipmentInventory.Component.Service createEquipmentInventoryComponentService() {
-        return new EquipmentInventory.Component.Service();
-    }
-
-    /**
-     * Create an instance of {@link CustomField }
-     * 
-     */
-    public CustomField createCustomField() {
-        return new CustomField();
-    }
-
-    /**
-     * Create an instance of {@link EquipmentInventory.Component }
-     * 
-     */
-    public EquipmentInventory.Component createEquipmentInventoryComponent() {
-        return new EquipmentInventory.Component();
+    public ExchangeEquipment.Alert createExchangeEquipmentAlert() {
+        return new ExchangeEquipment.Alert();
     }
 
     /**
@@ -142,75 +62,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EquipmentInventory.Component.Usage }
+     * Create an instance of {@link OffPremiseEquipment }
      * 
      */
-    public EquipmentInventory.Component.Usage createEquipmentInventoryComponentUsage() {
-        return new EquipmentInventory.Component.Usage();
-    }
-
-    /**
-     * Create an instance of {@link ExchangeEquipmentList }
-     * 
-     */
-    public ExchangeEquipmentList createExchangeEquipmentList() {
-        return new ExchangeEquipmentList();
-    }
-
-    /**
-     * Create an instance of {@link Location }
-     * 
-     */
-    public Location createLocation() {
-        return new Location();
-    }
-
-    /**
-     * Create an instance of {@link CsgStatusMessage }
-     * 
-     */
-    public CsgStatusMessage createCsgStatusMessage() {
-        return new CsgStatusMessage();
-    }
-
-    /**
-     * Create an instance of {@link InitializeEquipmentRequest }
-     * 
-     */
-    public InitializeEquipmentRequest createInitializeEquipmentRequest() {
-        return new InitializeEquipmentRequest();
-    }
-
-    /**
-     * Create an instance of {@link ComponentUpdate }
-     * 
-     */
-    public ComponentUpdate createComponentUpdate() {
-        return new ComponentUpdate();
-    }
-
-    /**
-     * Create an instance of {@link Result }
-     * 
-     */
-    public Result createResult() {
-        return new Result();
-    }
-
-    /**
-     * Create an instance of {@link ResultExceptionInfo }
-     * 
-     */
-    public ResultExceptionInfo createResultExceptionInfo() {
-        return new ResultExceptionInfo();
-    }
-
-    /**
-     * Create an instance of {@link ExchangeEquipment.Alert }
-     * 
-     */
-    public ExchangeEquipment.Alert createExchangeEquipmentAlert() {
-        return new ExchangeEquipment.Alert();
+    public OffPremiseEquipment createOffPremiseEquipment() {
+        return new OffPremiseEquipment();
     }
 
     /**
@@ -222,75 +78,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ExchangeEquipmentResponse }
+     * Create an instance of {@link ComponentUpdate.Video }
      * 
      */
-    public ExchangeEquipmentResponse createExchangeEquipmentResponse() {
-        return new ExchangeEquipmentResponse();
+    public ComponentUpdate.Video createComponentUpdateVideo() {
+        return new ComponentUpdate.Video();
     }
 
     /**
-     * Create an instance of {@link ComponentUpdate.Video.AssociatedEquipment }
+     * Create an instance of {@link EquipmentInventory.Component.Usage }
      * 
      */
-    public ComponentUpdate.Video.AssociatedEquipment createComponentUpdateVideoAssociatedEquipment() {
-        return new ComponentUpdate.Video.AssociatedEquipment();
+    public EquipmentInventory.Component.Usage createEquipmentInventoryComponentUsage() {
+        return new EquipmentInventory.Component.Usage();
     }
 
     /**
-     * Create an instance of {@link GetEquipmentInventoryRequest }
+     * Create an instance of {@link Result }
      * 
      */
-    public GetEquipmentInventoryRequest createGetEquipmentInventoryRequest() {
-        return new GetEquipmentInventoryRequest();
-    }
-
-    /**
-     * Create an instance of {@link Business }
-     * 
-     */
-    public Business createBusiness() {
-        return new Business();
-    }
-
-    /**
-     * Create an instance of {@link com.charter.enterprise.billing.csg.equipment.AssociatedEquipment }
-     * 
-     */
-    public com.charter.enterprise.billing.csg.equipment.AssociatedEquipment createAssociatedEquipment() {
-        return new com.charter.enterprise.billing.csg.equipment.AssociatedEquipment();
-    }
-
-    /**
-     * Create an instance of {@link GetEquipmentInventoryResponse }
-     * 
-     */
-    public GetEquipmentInventoryResponse createGetEquipmentInventoryResponse() {
-        return new GetEquipmentInventoryResponse();
-    }
-
-    /**
-     * Create an instance of {@link com.charter.enterprise.billing.csg.equipment.Item }
-     * 
-     */
-    public com.charter.enterprise.billing.csg.equipment.Item createItem() {
-        return new com.charter.enterprise.billing.csg.equipment.Item();
-    }
-
-    /**
-     * Create an instance of {@link InitializeEquipmentResult }
-     * 
-     */
-    public InitializeEquipmentResult createInitializeEquipmentResult() {
-        return new InitializeEquipmentResult();
-    }
-
-    /**
-     * Create an instance of {@link EquipmentInventory }
-     * 
-     */
-    public EquipmentInventory createEquipmentInventory() {
-        return new EquipmentInventory();
+    public Result createResult() {
+        return new Result();
     }
 
     /**
@@ -302,11 +110,75 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ExchangeEquipmentRequest }
+     * Create an instance of {@link ExchangeEquipment.Component }
      * 
      */
-    public ExchangeEquipmentRequest createExchangeEquipmentRequest() {
-        return new ExchangeEquipmentRequest();
+    public ExchangeEquipment.Component createExchangeEquipmentComponent() {
+        return new ExchangeEquipment.Component();
+    }
+
+    /**
+     * Create an instance of {@link CustomField }
+     * 
+     */
+    public CustomField createCustomField() {
+        return new CustomField();
+    }
+
+    /**
+     * Create an instance of {@link InitializeEquipmentResult }
+     * 
+     */
+    public InitializeEquipmentResult createInitializeEquipmentResult() {
+        return new InitializeEquipmentResult();
+    }
+
+    /**
+     * Create an instance of {@link EquipmentInventoryResult }
+     * 
+     */
+    public EquipmentInventoryResult createEquipmentInventoryResult() {
+        return new EquipmentInventoryResult();
+    }
+
+    /**
+     * Create an instance of {@link ResultExceptionInfo }
+     * 
+     */
+    public ResultExceptionInfo createResultExceptionInfo() {
+        return new ResultExceptionInfo();
+    }
+
+    /**
+     * Create an instance of {@link CsgStatusMessage }
+     * 
+     */
+    public CsgStatusMessage createCsgStatusMessage() {
+        return new CsgStatusMessage();
+    }
+
+    /**
+     * Create an instance of {@link EquipmentInventory.Component }
+     * 
+     */
+    public EquipmentInventory.Component createEquipmentInventoryComponent() {
+        return new EquipmentInventory.Component();
+    }
+
+    /**
+     * Create an instance of {@link GetEquipmentInventoryResponse }
+     * 
+     */
+    public GetEquipmentInventoryResponse createGetEquipmentInventoryResponse() {
+        return new GetEquipmentInventoryResponse();
+    }
+
+    /**
+     * Create an instance of {@link EquipmentInventory.Component.Event }
+     * 
+     */
+    public EquipmentInventory.Component.Event createEquipmentInventoryComponentEvent() {
+        return new EquipmentInventory.Component.Event();
     }
 
     /**
@@ -315,6 +187,30 @@ public class ObjectFactory {
      */
     public ComponentUpdate.Usage createComponentUpdateUsage() {
         return new ComponentUpdate.Usage();
+    }
+
+    /**
+     * Create an instance of {@link Equipment }
+     * 
+     */
+    public Equipment createEquipment() {
+        return new Equipment();
+    }
+
+    /**
+     * Create an instance of {@link UpdateEquipmentInventoryRequest }
+     * 
+     */
+    public UpdateEquipmentInventoryRequest createUpdateEquipmentInventoryRequest() {
+        return new UpdateEquipmentInventoryRequest();
+    }
+
+    /**
+     * Create an instance of {@link Location }
+     * 
+     */
+    public Location createLocation() {
+        return new Location();
     }
 
     /**
@@ -334,83 +230,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CsgResponse }
+     * Create an instance of {@link UpdateEquipmentInventoryResponse }
      * 
      */
-    public CsgResponse createCsgResponse() {
-        return new CsgResponse();
+    public UpdateEquipmentInventoryResponse createUpdateEquipmentInventoryResponse() {
+        return new UpdateEquipmentInventoryResponse();
     }
 
     /**
-     * Create an instance of {@link com.charter.enterprise.billing.csg.equipment.Service }
+     * Create an instance of {@link ExchangeEquipment.Component.Item }
      * 
      */
-    public com.charter.enterprise.billing.csg.equipment.Service createService() {
-        return new com.charter.enterprise.billing.csg.equipment.Service();
+    public ExchangeEquipment.Component.Item createExchangeEquipmentComponentItem() {
+        return new ExchangeEquipment.Component.Item();
     }
 
     /**
-     * Create an instance of {@link ExchangeEquipment }
+     * Create an instance of {@link ComponentUpdate.Video.AssociatedEquipment }
      * 
      */
-    public ExchangeEquipment createExchangeEquipment() {
-        return new ExchangeEquipment();
-    }
-
-    /**
-     * Create an instance of {@link UpdateEquipmentInventoryRequest }
-     * 
-     */
-    public UpdateEquipmentInventoryRequest createUpdateEquipmentInventoryRequest() {
-        return new UpdateEquipmentInventoryRequest();
-    }
-
-    /**
-     * Create an instance of {@link LineOfBusiness }
-     * 
-     */
-    public LineOfBusiness createLineOfBusiness() {
-        return new LineOfBusiness();
-    }
-
-    /**
-     * Create an instance of {@link ExchangeEquipment.Component }
-     * 
-     */
-    public ExchangeEquipment.Component createExchangeEquipmentComponent() {
-        return new ExchangeEquipment.Component();
-    }
-
-    /**
-     * Create an instance of {@link ComponentUpdate.Video }
-     * 
-     */
-    public ComponentUpdate.Video createComponentUpdateVideo() {
-        return new ComponentUpdate.Video();
-    }
-
-    /**
-     * Create an instance of {@link EquipmentInventoryResult }
-     * 
-     */
-    public EquipmentInventoryResult createEquipmentInventoryResult() {
-        return new EquipmentInventoryResult();
-    }
-
-    /**
-     * Create an instance of {@link EquipmentInventory.Component.Event }
-     * 
-     */
-    public EquipmentInventory.Component.Event createEquipmentInventoryComponentEvent() {
-        return new EquipmentInventory.Component.Event();
-    }
-
-    /**
-     * Create an instance of {@link EquipmentInventory.Component.Video }
-     * 
-     */
-    public EquipmentInventory.Component.Video createEquipmentInventoryComponentVideo() {
-        return new EquipmentInventory.Component.Video();
+    public ComponentUpdate.Video.AssociatedEquipment createComponentUpdateVideoAssociatedEquipment() {
+        return new ComponentUpdate.Video.AssociatedEquipment();
     }
 
     /**
@@ -422,11 +262,99 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetEquipmentResponse }
+     * Create an instance of {@link com.charter.enterprise.billing.csg.equipment.Service }
      * 
      */
-    public GetEquipmentResponse createGetEquipmentResponse() {
-        return new GetEquipmentResponse();
+    public com.charter.enterprise.billing.csg.equipment.Service createService() {
+        return new com.charter.enterprise.billing.csg.equipment.Service();
+    }
+
+    /**
+     * Create an instance of {@link ExchangeEquipmentRequest }
+     * 
+     */
+    public ExchangeEquipmentRequest createExchangeEquipmentRequest() {
+        return new ExchangeEquipmentRequest();
+    }
+
+    /**
+     * Create an instance of {@link ComponentUpdate }
+     * 
+     */
+    public ComponentUpdate createComponentUpdate() {
+        return new ComponentUpdate();
+    }
+
+    /**
+     * Create an instance of {@link ExchangeEquipment.Component.Video.AssociatedEquipment }
+     * 
+     */
+    public ExchangeEquipment.Component.Video.AssociatedEquipment createExchangeEquipmentComponentVideoAssociatedEquipment() {
+        return new ExchangeEquipment.Component.Video.AssociatedEquipment();
+    }
+
+    /**
+     * Create an instance of {@link EquipmentInventory.Component.Video }
+     * 
+     */
+    public EquipmentInventory.Component.Video createEquipmentInventoryComponentVideo() {
+        return new EquipmentInventory.Component.Video();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfEquipment }
+     * 
+     */
+    public ArrayOfEquipment createArrayOfEquipment() {
+        return new ArrayOfEquipment();
+    }
+
+    /**
+     * Create an instance of {@link InitializeEquipmentResponse }
+     * 
+     */
+    public InitializeEquipmentResponse createInitializeEquipmentResponse() {
+        return new InitializeEquipmentResponse();
+    }
+
+    /**
+     * Create an instance of {@link EquipmentInventory }
+     * 
+     */
+    public EquipmentInventory createEquipmentInventory() {
+        return new EquipmentInventory();
+    }
+
+    /**
+     * Create an instance of {@link CsgResponse }
+     * 
+     */
+    public CsgResponse createCsgResponse() {
+        return new CsgResponse();
+    }
+
+    /**
+     * Create an instance of {@link ExchangeEquipment }
+     * 
+     */
+    public ExchangeEquipment createExchangeEquipment() {
+        return new ExchangeEquipment();
+    }
+
+    /**
+     * Create an instance of {@link GetEquipmentInventoryRequest }
+     * 
+     */
+    public GetEquipmentInventoryRequest createGetEquipmentInventoryRequest() {
+        return new GetEquipmentInventoryRequest();
+    }
+
+    /**
+     * Create an instance of {@link InitializeEquipmentRequest }
+     * 
+     */
+    public InitializeEquipmentRequest createInitializeEquipmentRequest() {
+        return new InitializeEquipmentRequest();
     }
 
     /**
@@ -438,11 +366,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Equipment }
+     * Create an instance of {@link com.charter.enterprise.billing.csg.equipment.AssociatedEquipment }
      * 
      */
-    public Equipment createEquipment() {
-        return new Equipment();
+    public com.charter.enterprise.billing.csg.equipment.AssociatedEquipment createAssociatedEquipment() {
+        return new com.charter.enterprise.billing.csg.equipment.AssociatedEquipment();
+    }
+
+    /**
+     * Create an instance of {@link ExchangeEquipmentResponse }
+     * 
+     */
+    public ExchangeEquipmentResponse createExchangeEquipmentResponse() {
+        return new ExchangeEquipmentResponse();
+    }
+
+    /**
+     * Create an instance of {@link LineOfBusiness }
+     * 
+     */
+    public LineOfBusiness createLineOfBusiness() {
+        return new LineOfBusiness();
     }
 
     /**
@@ -451,6 +395,62 @@ public class ObjectFactory {
      */
     public GetEquipmentRequest createGetEquipmentRequest() {
         return new GetEquipmentRequest();
+    }
+
+    /**
+     * Create an instance of {@link ExchangeEquipment.Component.Video }
+     * 
+     */
+    public ExchangeEquipment.Component.Video createExchangeEquipmentComponentVideo() {
+        return new ExchangeEquipment.Component.Video();
+    }
+
+    /**
+     * Create an instance of {@link Customer }
+     * 
+     */
+    public Customer createCustomer() {
+        return new Customer();
+    }
+
+    /**
+     * Create an instance of {@link com.charter.enterprise.billing.csg.equipment.Component }
+     * 
+     */
+    public com.charter.enterprise.billing.csg.equipment.Component createComponent() {
+        return new com.charter.enterprise.billing.csg.equipment.Component();
+    }
+
+    /**
+     * Create an instance of {@link EquipmentInventory.Component.Service }
+     * 
+     */
+    public EquipmentInventory.Component.Service createEquipmentInventoryComponentService() {
+        return new EquipmentInventory.Component.Service();
+    }
+
+    /**
+     * Create an instance of {@link ExchangeEquipmentList }
+     * 
+     */
+    public ExchangeEquipmentList createExchangeEquipmentList() {
+        return new ExchangeEquipmentList();
+    }
+
+    /**
+     * Create an instance of {@link Business }
+     * 
+     */
+    public Business createBusiness() {
+        return new Business();
+    }
+
+    /**
+     * Create an instance of {@link com.charter.enterprise.billing.csg.equipment.Item }
+     * 
+     */
+    public com.charter.enterprise.billing.csg.equipment.Item createItem() {
+        return new com.charter.enterprise.billing.csg.equipment.Item();
     }
 
 }

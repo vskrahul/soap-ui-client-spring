@@ -28,8 +28,8 @@ import com.charter.enterprise.billing.csg.equipment.UpdateEquipmentInventoryResp
 @WebService(name = "EquipmentService", targetNamespace = "http://charter.com/enterprise/billing/equipment")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
-    com.charter.enterprise.billing.equipment.ObjectFactory.class,
-    com.charter.enterprise.billing.csg.equipment.ObjectFactory.class
+    com.charter.enterprise.billing.csg.equipment.ObjectFactory.class,
+    com.charter.enterprise.billing.equipment.ObjectFactory.class
 })
 public interface EquipmentService {
 

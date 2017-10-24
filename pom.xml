@@ -4,7 +4,7 @@
 	<groupId>com.charter.enterprise</groupId>
 	<artifactId>csg</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0.2</version>
+	<version>1.0.0.3</version>
 	<name>csg</name>
 
 	<properties>
@@ -271,7 +271,8 @@
 					<xjcArgs>
 						<xjcArg>-XautoNameResolution</xjcArg>
 					</xjcArgs>
-					<verbose>true</verbose>
+					<!-- Make it in deploying war file -->
+					<verbose>false</verbose>
 					<wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
 					<wsdlFiles>
 						<wsdlFile>eai/AccountService.wsdl</wsdlFile>

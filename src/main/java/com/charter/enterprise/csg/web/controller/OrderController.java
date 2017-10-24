@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.charter.enterprise.billing.csg.orders.GetOrderScheduleResponse;
 import com.charter.enterprise.billing.csg.orders.GetOrdersResponse;
 import com.charter.enterprise.csg.service.OrderService;
 
@@ -32,5 +33,18 @@ public class OrderController {
 									,@RequestParam(name = "CustomerId", required = true) String customerId) {
 		logger.info(String.format("Request Order Details for : {RoutingArea=%s, CustomerId=%s}", routingArea, customerId));
 		return service.getOrders(routingArea, customerId);
+	}
+	
+	@RequestMapping(path = "/getOrderSchedule", method = {RequestMethod.GET})
+	public GetOrderScheduleResponse getOrderSchedule(@RequestParam(name="RoutingArea") String routingArea
+														,@RequestParam(name="BusinessUnit") String businessUnit
+														,@RequestParam(name="LocationId") String locationId
+														,@RequestParam(name="OrderId") String orderId
+														,@RequestParam(name = "JobSequence") String jobSequence
+														,@RequestParam(name = "JobType") String jobType
+														,@RequestParam(name = "TotalUnits") Integer totalUnits) {
+		
+		return service.getOrderSchedule(routingArea, businessUnit, locationId
+										,orderId, jobSequence, jobType, totalUnits);
 	}
 }

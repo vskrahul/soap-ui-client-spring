@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean;
 import org.springframework.stereotype.Repository;
 
+import com.charter.enterprise.billing.csg.orders.GetOrderScheduleRequest;
+import com.charter.enterprise.billing.csg.orders.GetOrderScheduleResponse;
 import com.charter.enterprise.billing.csg.orders.GetOrdersRequest;
 import com.charter.enterprise.billing.csg.orders.GetOrdersResponse;
 import com.charter.enterprise.billing.csg.orders.OrderService;
@@ -35,6 +37,15 @@ private Logger logger = LoggerFactory.getLogger(OrderRepositoryWs.class);
 		
 		OrderService service = (OrderService)orderProxy.getObject();
 		return service.getOrders(request);
+	}
+	
+	@Override
+	public GetOrderScheduleResponse getOrderSchedule(GetOrderScheduleRequest request) {
+		
+		logger.info(String.format("Gettting Orders for - %s", request));
+		
+		OrderService service = (OrderService)orderProxy.getObject();
+		return service.getOrderSchedule(request);
 	}
 
 }

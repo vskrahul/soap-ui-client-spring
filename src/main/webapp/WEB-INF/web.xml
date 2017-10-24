@@ -4,6 +4,7 @@
 	version="2.5">
 
 	<display-name>CSG</display-name>
+	<description>REST Full web services interacting with EAI</description>
 	
 	<servlet>
 		<servlet-name>mvc</servlet-name>
