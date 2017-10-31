@@ -14,7 +14,7 @@ import com.charter.enterprise.csg.service.AccountService;
 @RequestMapping(value = "account")
 public class AccountController {
 
-	private Logger logger = LoggerFactory.getLogger(EquipmentController.class);
+	private Logger logger = LoggerFactory.getLogger(AccountController.class);
 	
 	@Autowired
 	AccountService accountService;

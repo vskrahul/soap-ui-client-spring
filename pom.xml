@@ -4,7 +4,7 @@
 	<groupId>com.charter.enterprise</groupId>
 	<artifactId>csg</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0.3</version>
+	<version>1.0.0.4</version>
 	<name>csg</name>
 
 	<properties>
@@ -280,6 +280,7 @@
 						<wsdlFile>eai/ServicesService.wsdl</wsdlFile>
 						<wsdlFile>eai/OrderService.wsdl</wsdlFile>
 						<wsdlFile>soa/QueryIdentity_V1.wsdl</wsdlFile>
+						<wsdlFile>soa/PS_UpdateIdentity_v1r0.wsdl</wsdlFile>
 						<!-- Just to test if This project is able to call SOAP successfully. -->
 						<wsdlFile>weather.wsdl</wsdlFile>
 					</wsdlFiles>

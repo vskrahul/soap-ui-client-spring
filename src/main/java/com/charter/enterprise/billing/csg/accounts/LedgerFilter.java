@@ -69,13 +69,13 @@ import javax.xml.bind.annotation.XmlType;
 public class LedgerFilter {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "LedgerDetailBeginPostDate", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class),
+        @XmlElementRef(name = "LedgerDetailIdentifier", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class),
+        @XmlElementRef(name = "LedgerDetailEndPostDate", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class),
         @XmlElementRef(name = "LedgerStatementMonth", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class),
         @XmlElementRef(name = "LedgerStatementYear", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class),
         @XmlElementRef(name = "LedgerStatementIdentifier", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class),
         @XmlElementRef(name = "LedgerStatementDate", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class),
-        @XmlElementRef(name = "LedgerDetailEndPostDate", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class),
-        @XmlElementRef(name = "LedgerDetailIdentifier", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class)
+        @XmlElementRef(name = "LedgerDetailBeginPostDate", namespace = "http://charter.com/enterprise/billing/csg/accounts", type = JAXBElement.class)
     })
     protected List<JAXBElement<? extends Serializable>> ledgerDetailIdentifierOrLedgerDetailBeginPostDateOrLedgerDetailEndPostDate;
     @XmlElement(name = "LedgerDetailItemOfferIdentifier")
@@ -108,13 +108,13 @@ public class LedgerFilter {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * {@link JAXBElement }{@code <}{@link Integer }{@code >}
-     * {@link JAXBElement }{@code <}{@link Integer }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     * {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
      * 
      */

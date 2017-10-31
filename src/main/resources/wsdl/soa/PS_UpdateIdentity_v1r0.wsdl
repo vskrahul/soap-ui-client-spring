@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N2:definitions targetNamespace="http://charter.com/enterprise/updateidentity"
+	xmlns:WL5G3N4="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N3="http://charter.com/enterprise/updateidentity"
+	xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:WL5G3N1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<WL5G3N0:Policy WL5G3N1:Id="wss_username_token_service_policy">
+		<sp:SupportingTokens
+			xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+			<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+				<sp:UsernameToken
+					sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+					<wsp:Policy>
+						<sp:WssUsernameToken10 />
+					</wsp:Policy>
+				</sp:UsernameToken>
+			</wsp:Policy>
+		</sp:SupportingTokens>
+	</WL5G3N0:Policy>
+	<WL5G3N2:types>
+		<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+			xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://charter.com/enterprise/updateidentity"
+			xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/"
+			xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://charter.com/enterprise/updateidentity"
+			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://charter.com/enterprise/updateidentity"
+				schemaLocation="https://esbauth.corp.chartercom.com:11102/UpdateIdentity/proxy/PS_UpdateIdentity_v1r0?SCHEMA%2FUpdateIdentity%2Fproxy%2Fxsd%2FUpdateIdentity" />
+		</xsd:schema>
+	</WL5G3N2:types>
+	<WL5G3N2:message name="UPDATE_IDENTITY_Input_Msg">
+		<WL5G3N2:part name="body" element="WL5G3N3:UpdateIdentityRequest" />
+	</WL5G3N2:message>
+	<WL5G3N2:message name="UPDATE_IDENTITY_Output_Msg">
+		<WL5G3N2:part name="body" element="WL5G3N3:UpdateIdentityResponse" />
+	</WL5G3N2:message>
+	<WL5G3N2:portType name="UpdateIdentity_PortType">
+		<WL5G3N2:operation name="UPDATE_IDENTITY">
+			<WL5G3N2:input message="WL5G3N3:UPDATE_IDENTITY_Input_Msg" />
+			<WL5G3N2:output message="WL5G3N3:UPDATE_IDENTITY_Output_Msg" />
+		</WL5G3N2:operation>
+	</WL5G3N2:portType>
+	<WL5G3N2:binding name="UpdateIdentity_Binding" type="WL5G3N3:UpdateIdentity_PortType">
+		<WL5G3N0:Policy>
+			<WL5G3N0:PolicyReference URI="#wss_username_token_service_policy" />
+		</WL5G3N0:Policy>
+		<WL5G3N4:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<WL5G3N2:operation name="UPDATE_IDENTITY">
+			<WL5G3N4:operation />
+			<WL5G3N2:input>
+				<WL5G3N4:body use="literal" parts="body" />
+			</WL5G3N2:input>
+			<WL5G3N2:output>
+				<WL5G3N4:body use="literal" parts="body" />
+			</WL5G3N2:output>
+		</WL5G3N2:operation>
+	</WL5G3N2:binding>
+	<WL5G3N2:service name="UpdateIdentity_Service">
+		<WL5G3N2:port name="UpdateIdentity_Port" binding="WL5G3N3:UpdateIdentity_Binding">
+			<WL5G3N4:address
+				location="https://esbauth.corp.chartercom.com:11102/UpdateIdentity/proxy/PS_UpdateIdentity_v1r0" />
+		</WL5G3N2:port>
+	</WL5G3N2:service>
+</WL5G3N2:definitions>

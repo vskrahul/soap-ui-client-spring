@@ -47,6 +47,7 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		String servicesEndPoint = properties.getProperty(environment + ".services.endpoint");
 		
 		String soaQueryIndentityEndpoint = properties.getProperty(environment + ".soa.queryidentity.endpoint");
+		String soaUpdateIdentityEndpoint = properties.getProperty(environment + ".soa.updateidentity.endpoint");
 		
 		String eaiAllowedRequests = properties.getProperty(environment + ".eai.request.perhour");
 		String soaAllowedRequests = properties.getProperty(environment + ".soa.request.perhour");
@@ -70,6 +71,7 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		properties.setProperty("eai.account.endpoint", accountEndPoint);
 		properties.setProperty("eai.services.endpoint", servicesEndPoint);
 		properties.setProperty("soa.queryidentity.endpoint.endpoint", soaQueryIndentityEndpoint);
+		properties.setProperty("soa.updateidentity.endpoint", soaUpdateIdentityEndpoint);
 		
 		properties.setProperty("eai.request.perhour", eaiAllowedRequests);
 		properties.setProperty("soa.request.perhour", soaAllowedRequests);

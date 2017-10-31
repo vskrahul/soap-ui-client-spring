@@ -17,7 +17,7 @@ import com.charter.enterprise.csg.service.ServicesService;
 @RequestMapping(value = "customer")
 public class ServicesController {
 
-	private Logger logger = LoggerFactory.getLogger(EquipmentController.class);
+	private Logger logger = LoggerFactory.getLogger(ServicesController.class);
 	
 	@Autowired
 	private ServicesService service;
