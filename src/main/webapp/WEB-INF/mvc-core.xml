@@ -78,8 +78,14 @@
 
 	<bean id="soaSecurityHandlerResolver"
 		class="com.charter.enterprise.csg.security.SoaSecurityHandlerResolver">
-		<property name="username" value="${soa.username}" />
-		<property name="password" value="${soa.password}" />
+		<constructor-arg value="${soa.username}"/>
+		<constructor-arg value="${soa.password}"/>
+	</bean>
+	
+	<bean id="prefcommSecurityHandlerResolver"
+		class="com.charter.enterprise.csg.security.PrefcommSecurityHandlerResolver">
+		<constructor-arg value="${prefcomm.username}"/>
+		<constructor-arg value="${prefcomm.password}"/>
 	</bean>
 
 	<mvc:interceptors>
@@ -168,8 +174,19 @@
 		<property name="handlerResolver" ref="soaSecurityHandlerResolver" />
 	</bean>
 	
-
-	<!-- Just to test if this project able to call SOAP service. -->
+	<bean id="prefcommProxy"
+		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface"
+			value="com.charter.enterprise.prefcomm.v1.EnterprisePreferredCommunicationDataService" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/prefcomm/prefcomm.wsdl" />
+		<property name="namespaceUri"
+			value="http://www.charter.com/enterprise/prefcomm/v1" />
+		<property name="serviceName" value="EnterprisePreferredCommunicationSoapEndpointImplService" />
+		<property name="endpointAddress" value="${prefcomm.endpoint}" />
+		<property name="portName" value="EnterprisePreferredCommunicationDataServicePort" />
+		<property name="handlerResolver" ref="prefcommSecurityHandlerResolver" />
+	</bean>
+	
 	<bean id="weatherProxy"
 		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
 		<property name="serviceInterface" value="com.cdyne.ws.weatherws.WeatherSoap" />

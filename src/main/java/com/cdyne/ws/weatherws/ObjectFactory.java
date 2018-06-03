@@ -36,43 +36,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetWeatherInformationResponse }
+     * Create an instance of {@link ArrayOfForecast }
      * 
      */
-    public GetWeatherInformationResponse createGetWeatherInformationResponse() {
-        return new GetWeatherInformationResponse();
-    }
-
-    /**
-     * Create an instance of {@link WeatherReturn }
-     * 
-     */
-    public WeatherReturn createWeatherReturn() {
-        return new WeatherReturn();
-    }
-
-    /**
-     * Create an instance of {@link Forecast }
-     * 
-     */
-    public Forecast createForecast() {
-        return new Forecast();
-    }
-
-    /**
-     * Create an instance of {@link Temp }
-     * 
-     */
-    public Temp createTemp() {
-        return new Temp();
-    }
-
-    /**
-     * Create an instance of {@link GetCityWeatherByZIPResponse }
-     * 
-     */
-    public GetCityWeatherByZIPResponse createGetCityWeatherByZIPResponse() {
-        return new GetCityWeatherByZIPResponse();
+    public ArrayOfForecast createArrayOfForecast() {
+        return new ArrayOfForecast();
     }
 
     /**
@@ -84,51 +52,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCityForecastByZIP }
+     * Create an instance of {@link Temp }
      * 
      */
-    public GetCityForecastByZIP createGetCityForecastByZIP() {
-        return new GetCityForecastByZIP();
-    }
-
-    /**
-     * Create an instance of {@link WeatherDescription }
-     * 
-     */
-    public WeatherDescription createWeatherDescription() {
-        return new WeatherDescription();
-    }
-
-    /**
-     * Create an instance of {@link GetWeatherInformation }
-     * 
-     */
-    public GetWeatherInformation createGetWeatherInformation() {
-        return new GetWeatherInformation();
-    }
-
-    /**
-     * Create an instance of {@link ForecastReturn }
-     * 
-     */
-    public ForecastReturn createForecastReturn() {
-        return new ForecastReturn();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfForecast }
-     * 
-     */
-    public ArrayOfForecast createArrayOfForecast() {
-        return new ArrayOfForecast();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfWeatherDescription }
-     * 
-     */
-    public ArrayOfWeatherDescription createArrayOfWeatherDescription() {
-        return new ArrayOfWeatherDescription();
+    public Temp createTemp() {
+        return new Temp();
     }
 
     /**
@@ -140,11 +68,83 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link WeatherDescription }
+     * 
+     */
+    public WeatherDescription createWeatherDescription() {
+        return new WeatherDescription();
+    }
+
+    /**
+     * Create an instance of {@link GetWeatherInformationResponse }
+     * 
+     */
+    public GetWeatherInformationResponse createGetWeatherInformationResponse() {
+        return new GetWeatherInformationResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetWeatherInformation }
+     * 
+     */
+    public GetWeatherInformation createGetWeatherInformation() {
+        return new GetWeatherInformation();
+    }
+
+    /**
+     * Create an instance of {@link GetCityForecastByZIP }
+     * 
+     */
+    public GetCityForecastByZIP createGetCityForecastByZIP() {
+        return new GetCityForecastByZIP();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfWeatherDescription }
+     * 
+     */
+    public ArrayOfWeatherDescription createArrayOfWeatherDescription() {
+        return new ArrayOfWeatherDescription();
+    }
+
+    /**
+     * Create an instance of {@link GetCityWeatherByZIPResponse }
+     * 
+     */
+    public GetCityWeatherByZIPResponse createGetCityWeatherByZIPResponse() {
+        return new GetCityWeatherByZIPResponse();
+    }
+
+    /**
      * Create an instance of {@link GetCityForecastByZIPResponse }
      * 
      */
     public GetCityForecastByZIPResponse createGetCityForecastByZIPResponse() {
         return new GetCityForecastByZIPResponse();
+    }
+
+    /**
+     * Create an instance of {@link Forecast }
+     * 
+     */
+    public Forecast createForecast() {
+        return new Forecast();
+    }
+
+    /**
+     * Create an instance of {@link ForecastReturn }
+     * 
+     */
+    public ForecastReturn createForecastReturn() {
+        return new ForecastReturn();
+    }
+
+    /**
+     * Create an instance of {@link WeatherReturn }
+     * 
+     */
+    public WeatherReturn createWeatherReturn() {
+        return new WeatherReturn();
     }
 
     /**

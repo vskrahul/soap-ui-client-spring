@@ -1,0 +1,99 @@
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective settings
+[WARNING] Unrecognised tag: 'id' (position: START_TAG seen ...<servers>\n\n    <id>... @113:9)  @ F:\apache-maven-3.3.3\conf\settings.xml, line 113, column 9
+[WARNING] 
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building csg 1.0.0.4
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ csg ---
+[INFO] com.charter.enterprise:csg:war:1.0.0.4
+[INFO] +- org.springframework.ws:spring-ws-security:jar:3.0.1.RELEASE:compile
+[INFO] |  +- org.springframework.ws:spring-xml:jar:3.0.1.RELEASE:compile
+[INFO] |  +- org.springframework.ws:spring-ws-core:jar:3.0.1.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-oxm:jar:4.2.3.RELEASE:compile
+[INFO] |  +- org.springframework:spring-tx:jar:4.2.3.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-core:jar:5.0.3.RELEASE:compile
+[INFO] |  +- org.apache.wss4j:wss4j-ws-security-dom:jar:2.2.0:compile
+[INFO] |  |  \- org.apache.wss4j:wss4j-ws-security-common:jar:2.2.0:compile
+[INFO] |  |     +- org.apache.santuario:xmlsec:jar:2.1.0:compile
+[INFO] |  |     |  \- org.codehaus.woodstox:woodstox-core-asl:jar:4.4.1:compile
+[INFO] |  |     |     \- javax.xml.stream:stax-api:jar:1.0-2:compile
+[INFO] |  |     +- org.opensaml:opensaml-saml-impl:jar:3.3.0:compile
+[INFO] |  |     |  +- org.opensaml:opensaml-profile-api:jar:3.3.0:compile
+[INFO] |  |     |  |  \- org.opensaml:opensaml-core:jar:3.3.0:compile
+[INFO] |  |     |  |     \- io.dropwizard.metrics:metrics-core:jar:3.1.2:compile
+[INFO] |  |     |  +- org.opensaml:opensaml-saml-api:jar:3.3.0:compile
+[INFO] |  |     |  |  +- org.opensaml:opensaml-xmlsec-api:jar:3.3.0:compile
+[INFO] |  |     |  |  \- org.opensaml:opensaml-soap-api:jar:3.3.0:compile
+[INFO] |  |     |  +- org.opensaml:opensaml-security-impl:jar:3.3.0:compile
+[INFO] |  |     |  |  \- org.opensaml:opensaml-security-api:jar:3.3.0:compile
+[INFO] |  |     |  |     +- org.cryptacular:cryptacular:jar:1.1.1:compile
+[INFO] |  |     |  |     \- org.bouncycastle:bcprov-jdk15on:jar:1.54:compile
+[INFO] |  |     |  +- org.opensaml:opensaml-xmlsec-impl:jar:3.3.0:compile
+[INFO] |  |     |  \- net.shibboleth.utilities:java-support:jar:7.3.0:compile
+[INFO] |  |     |     +- com.google.guava:guava:jar:19.0:compile
+[INFO] |  |     |     \- joda-time:joda-time:jar:2.9:compile
+[INFO] |  |     +- org.opensaml:opensaml-xacml-impl:jar:3.3.0:compile
+[INFO] |  |     |  \- org.opensaml:opensaml-xacml-api:jar:3.3.0:compile
+[INFO] |  |     +- org.opensaml:opensaml-xacml-saml-impl:jar:3.3.0:compile
+[INFO] |  |     |  \- org.opensaml:opensaml-xacml-saml-api:jar:3.3.0:compile
+[INFO] |  |     +- org.jasypt:jasypt:jar:1.9.2:compile
+[INFO] |  |     \- org.apache.geronimo.javamail:geronimo-javamail_1.4_mail:jar:1.8.4:compile
+[INFO] |  +- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  \- commons-io:commons-io:jar:2.5:compile
+[INFO] +- org.springframework:spring-webmvc:jar:4.2.3.RELEASE:compile
+[INFO] +- org.springframework:spring-beans:jar:4.2.3.RELEASE:compile
+[INFO] +- org.springframework:spring-context:jar:4.2.3.RELEASE:compile
+[INFO] +- org.springframework:spring-aop:jar:4.2.3.RELEASE:compile
+[INFO] |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] +- org.springframework:spring-core:jar:4.2.3.RELEASE:compile
+[INFO] +- org.springframework:spring-expression:jar:4.2.3.RELEASE:compile
+[INFO] +- org.springframework:spring-web:jar:4.2.3.RELEASE:compile
+[INFO] +- wsdl4j:wsdl4j:jar:1.6.3:compile
+[INFO] +- javax.servlet:jstl:jar:1.2:compile
+[INFO] +- javax.servlet:javax.servlet-api:jar:3.1.0:provided
+[INFO] +- org.apache.tiles:tiles-core:jar:2.2.2:compile
+[INFO] |  +- org.apache.tiles:tiles-api:jar:2.2.2:compile
+[INFO] |  \- commons-digester:commons-digester:jar:2.0:compile
+[INFO] |     \- commons-beanutils:commons-beanutils:jar:1.8.0:compile
+[INFO] +- org.apache.tiles:tiles-extras:jar:2.2.2:compile
+[INFO] |  +- org.apache.tiles:tiles-servlet-wildcard:jar:2.2.2:compile
+[INFO] |  +- org.apache.tiles:tiles-freemarker:jar:2.2.2:compile
+[INFO] |  +- org.apache.tiles:tiles-velocity:jar:2.2.2:compile
+[INFO] |  |  \- org.apache.velocity:velocity-tools:jar:2.0:compile
+[INFO] |  |     +- oro:oro:jar:2.0.8:compile
+[INFO] |  |     \- org.apache.velocity:velocity:jar:1.6.2:compile
+[INFO] |  +- org.apache.tiles:tiles-el:jar:2.2.2:compile
+[INFO] |  +- org.apache.tiles:tiles-mvel:jar:2.2.2:compile
+[INFO] |  |  \- org.mvel:mvel2:jar:2.0.11:compile
+[INFO] |  +- org.apache.tiles:tiles-ognl:jar:2.2.2:compile
+[INFO] |  \- org.apache.tiles:tiles-compat:jar:2.2.2:compile
+[INFO] +- org.apache.tiles:tiles-servlet:jar:2.2.2:compile
+[INFO] +- org.apache.tiles:tiles-jsp:jar:2.2.2:compile
+[INFO] |  \- org.apache.tiles:tiles-template:jar:2.2.2:compile
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.5:compile
+[INFO] +- org.slf4j:jcl-over-slf4j:jar:1.7.5:compile
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.5:compile
+[INFO] |  \- log4j:log4j:jar:1.2.17:compile
+[INFO] +- ch.qos.logback:logback-classic:jar:1.0.13:runtime
+[INFO] |  \- ch.qos.logback:logback-core:jar:1.0.13:runtime
+[INFO] +- org.freemarker:freemarker:jar:2.3.23:compile
+[INFO] +- com.fasterxml.jackson.dataformat:jackson-dataformat-xml:jar:2.4.3:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.4.0:compile
+[INFO] |  +- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.4.3:compile
+[INFO] |  \- org.codehaus.woodstox:stax2-api:jar:3.1.4:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.4.3:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.4.3:compile
+[INFO] +- commons-codec:commons-codec:jar:1.9:compile
+[INFO] +- net.sf.ehcache:ehcache:jar:2.8.3:compile
+[INFO] \- org.springframework:spring-context-support:jar:4.2.3.RELEASE:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.947 s
+[INFO] Finished at: 2018-05-29T14:51:02-06:00
+[INFO] Final Memory: 16M/216M
+[INFO] ------------------------------------------------------------------------

@@ -6,46 +6,35 @@ package com.charter.enterprise.csg.security;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.soap.SOAPException;
 import javax.xml.ws.handler.Handler;
-import javax.xml.ws.handler.HandlerResolver;
 import javax.xml.ws.handler.PortInfo;
 
-/**
- * To Security token in the request header to SOA-OSB
- * 
- * @author Rahul
- *
- */
-public class SoaSecurityHandlerResolver implements HandlerResolver {
+import com.charter.enterprise.csg.exception.PrefcommException;
 
-	private String username;
-	
-	private String password;
+/**
+ * @author Rahul Vishvakarma
+ *
+ * @created Jun 1, 2018
+ */
+public class SoaSecurityHandlerResolver extends SecurityHandlerResolver {
+
+	protected SoaSecurityHandlerResolver(String username, String password) {
+		super(username, password);
+	}
 	
 	@SuppressWarnings("rawtypes")
 	@Override
-	public List<Handler> getHandlerChain(PortInfo portInfo) {
-		List<Handler> handlerList = new ArrayList<Handler>();
-		SecurityHandler handler = new SecurityHandler();
-		handler.setUsername(getUsername());
-		handler.setPassword(getPassword());
+	public List<Handler> getHandlerChain(PortInfo portInfo)  {
+		List<Handler> handlerList = new ArrayList<>();
+		SecurityHandler handler = null;
+		
+		try {
+			handler = new SoaSecurityHandler(getUsername(), getPassword());
+		} catch(SOAPException e) {
+			throw new PrefcommException(e.getMessage());
+		}
 		handlerList.add(handler);
 		return handlerList;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 }

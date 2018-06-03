@@ -39,7 +39,7 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		String username = credentialManager.decrypt(properties.getProperty(environment  + ".username"));
 		String password = credentialManager.decrypt(properties.getProperty(environment  + ".password"));
 		
-		String soaUserName = credentialManager.decrypt(properties.getProperty(environment  + ".soa.username"));
+		String soaUsername = credentialManager.decrypt(properties.getProperty(environment  + ".soa.username"));
 		String soaPassword = credentialManager.decrypt(properties.getProperty(environment  + ".soa.password"));
 		
 		String equipmentEndPoint = properties.getProperty(environment + ".equipment.endpoint");
@@ -51,6 +51,10 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		
 		String eaiAllowedRequests = properties.getProperty(environment + ".eai.request.perhour");
 		String soaAllowedRequests = properties.getProperty(environment + ".soa.request.perhour");
+		
+		String prefcommEndpoint = properties.getProperty(environment + ".prefcomm.endpoint");
+		String prefcommUsername = credentialManager.decrypt(properties.getProperty(environment + ".prefcomm.username"));
+		String prefcommPassword = credentialManager.decrypt(properties.getProperty(environment + ".prefcomm.password"));
 		
 		RequestCounts _instance = RequestCounts.getInstance();
 		try {
@@ -64,7 +68,7 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		
 		properties.setProperty("eai.username", username);
 		properties.setProperty("eai.password", password);
-		properties.setProperty("soa.username", soaUserName);
+		properties.setProperty("soa.username", soaUsername);
 		properties.setProperty("soa.password", soaPassword);
 		
 		properties.setProperty("eai.equipment.endpoint", equipmentEndPoint);
@@ -75,5 +79,9 @@ public class CsgPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		
 		properties.setProperty("eai.request.perhour", eaiAllowedRequests);
 		properties.setProperty("soa.request.perhour", soaAllowedRequests);
+		
+		properties.setProperty("prefcomm.endpoint", prefcommEndpoint);
+		properties.setProperty("prefcomm.username", prefcommUsername);
+		properties.setProperty("prefcomm.password", prefcommPassword);
 	}
 }

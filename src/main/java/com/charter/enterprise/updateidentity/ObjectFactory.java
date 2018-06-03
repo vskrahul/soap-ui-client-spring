@@ -35,43 +35,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ResponseHeaderType }
+     * 
+     */
+    public ResponseHeaderType createResponseHeaderType() {
+        return new ResponseHeaderType();
+    }
+
+    /**
      * Create an instance of {@link UpdateIdentityRequestBodyType.Preferences.PreferenceModification }
      * 
      */
     public UpdateIdentityRequestBodyType.Preferences.PreferenceModification createUpdateIdentityRequestBodyTypePreferencesPreferenceModification() {
         return new UpdateIdentityRequestBodyType.Preferences.PreferenceModification();
-    }
-
-    /**
-     * Create an instance of {@link ResultExceptionInfo }
-     * 
-     */
-    public ResultExceptionInfo createResultExceptionInfo() {
-        return new ResultExceptionInfo();
-    }
-
-    /**
-     * Create an instance of {@link AccountIdentityType }
-     * 
-     */
-    public AccountIdentityType createAccountIdentityType() {
-        return new AccountIdentityType();
-    }
-
-    /**
-     * Create an instance of {@link UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestionModification }
-     * 
-     */
-    public UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestionModification createUpdateIdentityRequestBodyTypeSecurityQuestionsSecurityQuestionModification() {
-        return new UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestionModification();
-    }
-
-    /**
-     * Create an instance of {@link RequestHeaderType }
-     * 
-     */
-    public RequestHeaderType createRequestHeaderType() {
-        return new RequestHeaderType();
     }
 
     /**
@@ -83,27 +59,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link IdentityResponseBodyType }
+     * Create an instance of {@link UpdateIdentityRequestType }
      * 
      */
-    public IdentityResponseBodyType createIdentityResponseBodyType() {
-        return new IdentityResponseBodyType();
+    public UpdateIdentityRequestType createUpdateIdentityRequestType() {
+        return new UpdateIdentityRequestType();
     }
 
     /**
-     * Create an instance of {@link UserIdentityType }
+     * Create an instance of {@link AccountIdentityType }
      * 
      */
-    public UserIdentityType createUserIdentityType() {
-        return new UserIdentityType();
-    }
-
-    /**
-     * Create an instance of {@link UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestion }
-     * 
-     */
-    public UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestion createUpdateIdentityRequestBodyTypeSecurityQuestionsSecurityQuestion() {
-        return new UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestion();
+    public AccountIdentityType createAccountIdentityType() {
+        return new AccountIdentityType();
     }
 
     /**
@@ -115,6 +83,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ResultExceptionInfo }
+     * 
+     */
+    public ResultExceptionInfo createResultExceptionInfo() {
+        return new ResultExceptionInfo();
+    }
+
+    /**
      * Create an instance of {@link UpdateIdentityRequestBodyType.SecurityQuestions }
      * 
      */
@@ -123,19 +99,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateIdentityRequestType }
+     * Create an instance of {@link UserIdentityType }
      * 
      */
-    public UpdateIdentityRequestType createUpdateIdentityRequestType() {
-        return new UpdateIdentityRequestType();
+    public UserIdentityType createUserIdentityType() {
+        return new UserIdentityType();
     }
 
     /**
-     * Create an instance of {@link ResponseHeaderType }
+     * Create an instance of {@link RequestHeaderType }
      * 
      */
-    public ResponseHeaderType createResponseHeaderType() {
-        return new ResponseHeaderType();
+    public RequestHeaderType createRequestHeaderType() {
+        return new RequestHeaderType();
+    }
+
+    /**
+     * Create an instance of {@link UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestionModification }
+     * 
+     */
+    public UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestionModification createUpdateIdentityRequestBodyTypeSecurityQuestionsSecurityQuestionModification() {
+        return new UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestionModification();
+    }
+
+    /**
+     * Create an instance of {@link IdentityResponseBodyType }
+     * 
+     */
+    public IdentityResponseBodyType createIdentityResponseBodyType() {
+        return new IdentityResponseBodyType();
     }
 
     /**
@@ -152,6 +144,14 @@ public class ObjectFactory {
      */
     public UpdateIdentityResponseType createUpdateIdentityResponseType() {
         return new UpdateIdentityResponseType();
+    }
+
+    /**
+     * Create an instance of {@link UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestion }
+     * 
+     */
+    public UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestion createUpdateIdentityRequestBodyTypeSecurityQuestionsSecurityQuestion() {
+        return new UpdateIdentityRequestBodyType.SecurityQuestions.SecurityQuestion();
     }
 
     /**
