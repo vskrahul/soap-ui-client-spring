@@ -29,7 +29,7 @@ import org.apache.ws.security.WSSecurityException;
  */
 public abstract class SecurityHandler implements SOAPHandler<SOAPMessageContext> {
 
-private String username;
+	private String username;
 	
 	private String password;
 	
