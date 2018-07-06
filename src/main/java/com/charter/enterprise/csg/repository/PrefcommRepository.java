@@ -1,5 +1,7 @@
 package com.charter.enterprise.csg.repository;
 
+import com.charter.enterprise.prefcomm.v1.FindContactDatasByContactId;
+import com.charter.enterprise.prefcomm.v1.FindContactDatasByContactIdResponse;
 import com.charter.enterprise.prefcomm.v1.FindContactPreferencesByAccountNumberAndBillingSystem;
 import com.charter.enterprise.prefcomm.v1.FindContactPreferencesByAccountNumberAndBillingSystemResponse;
 
@@ -22,4 +24,13 @@ public interface PrefcommRepository {
 	public FindContactPreferencesByAccountNumberAndBillingSystemResponse
 		findContactPreferencesByAccountNumberAndBillingSystem(
 					FindContactPreferencesByAccountNumberAndBillingSystem request);
+	
+	/**
+	 * Repository layer to make prefcomm SOAP request for findContactDatasByContactId operation.
+	 * 
+	 * @param request {@link FindContactDatasByContactId}
+	 * @return {@link FindContactDatasByContactIdResponse}
+	 */
+	public FindContactDatasByContactIdResponse findContactDatasByContactIdResponse(
+										FindContactDatasByContactId request);
 }

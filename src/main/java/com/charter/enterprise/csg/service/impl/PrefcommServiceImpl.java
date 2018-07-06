@@ -12,6 +12,8 @@ import com.charter.enterprise.csg.model.json.JsonResponse;
 import com.charter.enterprise.csg.model.json.JsonResponseStatus;
 import com.charter.enterprise.csg.repository.PrefcommRepository;
 import com.charter.enterprise.csg.service.PrefcommService;
+import com.charter.enterprise.prefcomm.v1.FindContactDatasByContactId;
+import com.charter.enterprise.prefcomm.v1.FindContactDatasByContactIdResponse;
 import com.charter.enterprise.prefcomm.v1.FindContactPreferencesByAccountNumberAndBillingSystem;
 import com.charter.enterprise.prefcomm.v1.FindContactPreferencesByAccountNumberAndBillingSystemResponse;
 
@@ -60,5 +62,26 @@ public class PrefcommServiceImpl implements PrefcommService {
 		
 		return json;
 	}
-
+	
+	@Override
+	public JsonResponse<FindContactDatasByContactIdResponse> findContactDatasByContactIdResponse(Long contactId) {
+		
+		JsonResponse<FindContactDatasByContactIdResponse> json
+				= new JsonResponse<>();
+		
+		try {
+			FindContactDatasByContactId request = new FindContactDatasByContactId();
+			request.setContactId(contactId);
+			
+			json.setBody(repository.findContactDatasByContactIdResponse(request));
+			json.setStatus(JsonResponseStatus.Success);
+			
+		} catch(Exception e) {
+			json.setStatus(JsonResponseStatus.Error);
+			json.setError(e.getMessage());
+			logger.error(e.getMessage());
+		}
+		
+		return json;
+	}
 }

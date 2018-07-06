@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.charter.enterprise.csg.repository.PrefcommRepository;
 import com.charter.enterprise.prefcomm.v1.EnterprisePreferredCommunicationDataService;
 import com.charter.enterprise.prefcomm.v1.EnterprisePreferredCommunicationServiceException_Exception;
+import com.charter.enterprise.prefcomm.v1.FindContactDatasByContactId;
+import com.charter.enterprise.prefcomm.v1.FindContactDatasByContactIdResponse;
 import com.charter.enterprise.prefcomm.v1.FindContactPreferencesByAccountNumberAndBillingSystem;
 import com.charter.enterprise.prefcomm.v1.FindContactPreferencesByAccountNumberAndBillingSystemResponse;
 
@@ -43,6 +45,25 @@ public class PrefcommRepositoryWs implements PrefcommRepository {
 			response = service.findContactPreferencesByAccountNumberAndBillingSystem(request, null);
 			
 		} catch(EnterprisePreferredCommunicationServiceException_Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return response;
+	}
+	
+	@Override
+	public FindContactDatasByContactIdResponse findContactDatasByContactIdResponse(
+			FindContactDatasByContactId request) {
+		
+		FindContactDatasByContactIdResponse response = null;
+		
+		try {
+			EnterprisePreferredCommunicationDataService service =
+					(EnterprisePreferredCommunicationDataService)prefcommProxy.getObject();
+			
+			response = service.findContactDatasByContactId(request, null);
+			
+		} catch(Exception e) {
 			logger.error(e.getMessage());
 		}
 		
